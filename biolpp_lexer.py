@@ -27,7 +27,21 @@ tokens = [
     'DOT',
     'STRING',
     'COMMA',
-    'INT'
+    'INT',
+    'LBRACKET',
+    'RBRACKET',
+    'SEMI',
+    'COLON',
+    # (+ , - , * , / , %)
+    'PLUS',
+    'MINUS',
+    'TIMES',
+    'DIVIDE',
+    'MODULO',
+    # (++ , --)
+    'INCREMENT',
+    'DECREMENT'
+
 ] + list(reserved.values())
 
 # basic regex
@@ -36,6 +50,19 @@ t_LPAR = r'\('
 t_RPAR = r'\)'
 t_DOT = r'\.'
 t_COMMA = r'\,'
+t_LBRACKET = r'\['
+t_RBRACKET = r'\]'
+t_SEMI = r';'
+t_COLON = r':'
+# (+ , - , * , / , %)
+t_PLUS = r'\+'
+t_MINUS = r'-'
+t_TIMES = r'\*'
+t_DIVIDE = r'/'
+t_MODULO = r'%'
+# (++ , --)
+t_INCREMENT = r'\+\+'
+t_DECREMENT = r'--'
 
 # regex functions
 
@@ -58,3 +85,4 @@ def t_STRING(t):
     return t
 
 #TODO: add functions for reserved words
+
