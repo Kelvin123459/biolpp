@@ -2,22 +2,37 @@
 #   BioL++ Lexer
 #============================================================
 
+
 import ply.lex as lex
-from ply.lex import *
-import re
 
 
-#TODO: figure out necessary reserved words
 # reserved words
 reserved = {
-    'sequence': 'SEQ',
-    'complement': 'COMP',
-    'rcomplement': 'RCOMP',
-    'transcription': 'TRANS',
+    'seq': 'SEQ',
+    'comp': 'COMP',
+    'rcomp': 'RCOMP',
+    'transc': 'TRANSC',
+    'rtransc': 'RTRANSC',
+    'transl': 'TRANSL',
     'read': 'READ',
-    'get': 'GET',
-    'help': 'HELP',
-    'exit': 'EXIT'
+    'write': 'WRITE',
+    'ctable': 'CTABLE',
+    'createmotif': 'CMOTIF',
+    'count': 'COUNT',
+    'cons': 'CONSEN',
+    'acons': 'ACONSEN',
+    'dcons': 'DCONSEN',
+    'drawtree': 'DRAW',
+    'rna': 'TYPE',
+    'dna': 'TYPE',
+    'protein': 'TYPE',
+    'print': 'PRINT',
+    'fasta': 'FORMAT',
+    'txt': 'FORMAT',
+    'void': 'VOID',
+    'bseq': 'RTYPE',
+    'btree': 'RTYPE',
+    'varlist': 'VARLIST'
 }
 
 # tokens
@@ -70,7 +85,7 @@ t_DECREMENT = r'--'
 
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
-    t.type = 'ID'
+    t.type = reserved.get(t.value, 'ID')
     return t
 
 def t_INT(t):
@@ -86,5 +101,18 @@ def t_STRING(t):
     r'\"(.+?)\"'
     return t
 
-#TODO: add functions for reserved words
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += t.value.count("\n")
 
+def t_error(t):
+    print("Error at line %d - unexpected expression '%s' " % (t.lexer.lineno, t.value[0]))
+    t.lexer.skip(1)
+
+def t_COMMENT(t):
+    r'\#.*'
+    pass
+
+
+# Lexer
+lex.lex()
