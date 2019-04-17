@@ -15,7 +15,9 @@ reserved = {
     'rcomplement': 'RCOMP',
     'transcription': 'TRANS',
     'read': 'READ',
-    'get': 'GET'
+    'get': 'GET',
+    'help': 'HELP',
+    'exit': 'EXIT'
 }
 
 # tokens
