@@ -10,12 +10,30 @@ import re
 #TODO: figure out necessary reserved words
 # reserved words
 reserved = {
-    'sequence': 'SEQ',
-    'complement': 'COMP',
-    'rcomplement': 'RCOMP',
-    'transcription': 'TRANS',
+    'seq': 'SEQ',
+    'comp': 'COMP',
+    'rcomp': 'RCOMP',
+    'transc': 'TRANSC',
+    'rtransc': 'RTRANSC',
+    'transl': 'TRANSL',
     'read': 'READ',
-    'get': 'GET'
+    'write': 'WRITE',
+    'ctable': 'CTABLE',
+    'createmotif': 'CMOTIF',
+    'count': 'COUNT',
+    'cons': 'CONSEN',
+    'acons': 'ACONSEN',
+    'dcons': 'DCONSEN',
+    'drawtree': 'DRAW',
+    'rna': 'TYPE',
+    'dna': 'TYPE',
+    'protein': 'TYPE',
+    'print': 'PRINT',
+    'fasta': 'FORMAT',
+    'txt': 'FORMAT',
+    'void': 'VOID',
+    'bseq': 'RTYPE',
+    'btree': 'RTYPE'
 }
 
 # tokens
@@ -41,7 +59,7 @@ t_COMMA = r'\,'
 
 def t_ID(t):
     r'[a-zA-Z_][a-zA-Z_0-9]*'
-    t.type = 'ID'
+    t.type = reserved.get(t.value, 'ID')
     return t
 
 def t_INT(t):
