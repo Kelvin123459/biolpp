@@ -2,12 +2,10 @@
 #   BioL++ Lexer
 #============================================================
 
+
 import ply.lex as lex
-from ply.lex import *
-import re
 
 
-#TODO: figure out necessary reserved words
 # reserved words
 reserved = {
     'seq': 'SEQ',
@@ -54,6 +52,7 @@ t_LPAR = r'\('
 t_RPAR = r'\)'
 t_DOT = r'\.'
 t_COMMA = r'\,'
+t_ignore = " \t"
 
 # regex functions
 
@@ -75,4 +74,18 @@ def t_STRING(t):
     r'\"(.+?)\"'
     return t
 
-#TODO: add functions for reserved words
+def t_newline(t):
+    r'\n+'
+    t.lexer.lineno += t.value.count("\n")
+
+def t_error(t):
+    print("Error at line %d - unexpected expression '%s' " % (t.lexer.lineno, t.value[0]))
+    t.lexer.skip(1)
+
+def t_COMMENT(t):
+    r'\#.*'
+    pass
+
+
+# Lexer
+lex.lex()
