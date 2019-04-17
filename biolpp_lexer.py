@@ -31,7 +31,8 @@ reserved = {
     'txt': 'FORMAT',
     'void': 'VOID',
     'bseq': 'RTYPE',
-    'btree': 'RTYPE'
+    'btree': 'RTYPE',
+    'varlist': 'VARLIST'
 }
 
 # tokens
