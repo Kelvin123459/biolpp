@@ -1,8 +1,9 @@
 from Bio import SeqIO
 
 def dna_to_rna(dna):
+    dna2 = dna.upper()
     rna = ""
-    for ch in dna:
+    for ch in dna2:
         if ch == "T":
             rna += "U"
         else:
@@ -10,8 +11,9 @@ def dna_to_rna(dna):
     return rna
 
 def rna_to_dna(rna):
+    rna2 = rna.upper()
     dna = ""
-    for ch in rna:
+    for ch in rna2:
         if ch == "U":
             dna += "T"
         else:
@@ -29,9 +31,10 @@ def rna_to_dnaFile(file):
     return rna_to_dna(rna)
 
 def complement_dna(dna):
+    dna2 = dna.upper()
     answer = []
     complement = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'}
-    for nucleotide in dna:
+    for nucleotide in dna2:
         answer.append(complement[nucleotide])
     return ''.join(answer[::-1])
 
@@ -61,13 +64,20 @@ def to_protein(seq, type):
             protein += table[codon]
     return protein
 
+def gc_content(file):
+    seq = read_fasta(file)
+    seq2 = seq.upper()
+    gc_count = seq.count("G") + seq.count("C")
+    return 100 * (float(gc_count) / len(seq))
+
 def read_fasta(fastaFile):
     fasta_sequences = SeqIO.parse(open(fastaFile), 'fasta')
-    with open(output_file) as out_file:
-        for fasta in fasta_sequences:
-            name, sequence = fasta.id, str(fasta.seq)
-            new_sequence = some_function(sequence)
-            write_fasta(out_file)
+    return fasta_sequences
+    # with open(output_file) as out_file:
+    #     for fasta in fasta_sequences:
+    #         name, sequence = fasta.id, str(fasta.seq)
+    #         new_sequence = some_function(sequence)
+    #         write_fasta(out_file)
 
 # not working right now
 # def read_fasta(fasta):
