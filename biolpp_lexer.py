@@ -12,7 +12,9 @@ reserved = {
     'sequence': 'SEQ',
     'complement': 'COMP',
     'rcomplement': 'RCOMP',
-    'transcription': 'TRANS'
+    'transcription': 'TRANS',
+    'import': 'import',
+    'reader': 'read'
 }
 
 # tokens
