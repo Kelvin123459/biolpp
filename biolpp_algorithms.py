@@ -1,4 +1,5 @@
 # from Bio import SeqIO
+import sys
 
 def dna_to_rna(dna):
     dna2 = dna.upper()
@@ -88,7 +89,7 @@ def motif_interval(seq, splice):
 def mendel_table(type1, type2):
     arr = __combinations(type1, type2)
     table = __make_table(arr[0], arr[1])
-    __print_table(table, arr[0], arr[1])
+    printed_table = __print_table(table, arr[0], arr[1])
     frequencies = []
     frequencies.append('\n')
     calculated = []
@@ -103,6 +104,19 @@ def mendel_table(type1, type2):
             print(x + " genotype -> " + str(float(count) / float((len(genotypes))) * 100) + "%.")
             frequencies.append(x + ' & ' + str(float(count) / float((len(genotypes))) * 100) + '\\% \\\ \\hline \n')
         calculated.append(sorted(x))
+    return_arr = [printed_table, frequencies]
+    return return_arr
+
+def mendel_table_write(type1, type2, file):
+    txt_file = file + ".txt"
+    original = sys.stdout
+    sys.stdout = open(txt_file, "a")
+    try:
+        print(mendel_table(type1, type2)+ "sys.stdout")
+    except:
+        pass
+    sys.stdout.close()
+    sys.stdout = original
 
 # commented while import is figured out
 # def read_fasta(fastaFile):
