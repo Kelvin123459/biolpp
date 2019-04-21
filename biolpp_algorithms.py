@@ -1,4 +1,4 @@
-from Bio import SeqIO
+# from Bio import SeqIO
 
 def dna_to_rna(dna):
     dna2 = dna.upper()
@@ -64,15 +64,50 @@ def to_protein(seq, type):
             protein += table[codon]
     return protein
 
+def hamming_distance(seq1, seq2):
+    count = 0
+    for i in xrange(len(s)):
+        if seq1[i] != seq2[i]:
+            count += 1
+    return count
+
 def gc_content(file):
     seq = read_fasta(file)
     seq2 = seq.upper()
     gc_count = seq.count("G") + seq.count("C")
     return 100 * (float(gc_count) / len(seq))
 
-def read_fasta(fastaFile):
-    fasta_sequences = SeqIO.parse(open(fastaFile), 'fasta')
-    return fasta_sequences
+def motif_interval(seq, splice):
+    result = []
+    for i in range(0, len(seq) - len(splice) + 1):
+        if seq[i:i + len(splice)] == splice:
+            result.append(i + 1)
+    return result
+
+# def consensus():
+def mendel_table(type1, type2):
+    arr = __combinations(type1, type2)
+    table = __make_table(arr[0], arr[1])
+    __print_table(table, arr[0], arr[1])
+    frequencies = []
+    frequencies.append('\n')
+    calculated = []
+    genotypes = [a for b in table for a in b]
+    print('Frequencies:\n____________________________________________')
+    for k, x in enumerate(genotypes):
+        count = 0
+        for y in genotypes:
+            if sorted(x) == sorted(y):
+                count += 1
+        if sorted(x) not in calculated:
+            print(x + " genotype -> " + str(float(count) / float((len(genotypes))) * 100) + "%.")
+            frequencies.append(x + ' & ' + str(float(count) / float((len(genotypes))) * 100) + '\\% \\\ \\hline \n')
+        calculated.append(sorted(x))
+
+# commented while import is figured out
+# def read_fasta(fastaFile):
+#     fasta_sequences = SeqIO.parse(open(fastaFile), 'fasta')
+#     return fasta_sequences
     # with open(output_file) as out_file:
     #     for fasta in fasta_sequences:
     #         name, sequence = fasta.id, str(fasta.seq)
@@ -87,6 +122,58 @@ def read_fasta(fastaFile):
 #         headerStr = header.__next__()[1:].strip()
 #         seq = "".join(s.strip() for s in faiter.__next__())
 #         yield (headerStr, seq)
+
+def __make_table(p1, p2):
+    table = []
+    for a in p1:
+        row = []
+        for letter in p2:
+            row.append(letter + a)
+        table.append(row)
+    return table
+
+def __print_table(table, c1, c2):
+    printing = []
+    length = (len(c1[0]) * 2 + 4) * 2 ** (len(c1[0]))
+    print('')
+    print('', end=' ')
+    for letter in c2:
+        print(' ' * (len(c1[0]) + 3) + letter + '', end=' ')
+        printing.append('& ' + letter + ' ')
+    print('\n' + ' ' * (len(c1[0]) + 1) + '-' * (length))
+    printing.append('\\\ \n\\hline\n')
+    for i, row in enumerate(table):
+        print(c1[table.index(row)], end=' ')
+        printing.append(c1[table.index(row)] + ' & ')
+        print('|', end=' ')
+        for j, cell in enumerate(row):
+            print(cell + ' | ', end=' ')
+            if j != len(row) - 1:
+                printing.append(cell + ' & ')
+            else:
+                printing.append(cell + ' ')
+        print('\n' + ' ' * (len(c1[0]) + 1) + '-' * (length))
+        if i != len(table) - 1:
+            printing.append('\\\ \n')
+    return printing
+
+def __combinations(p1, p2):
+    if len(p1) == 1 or len(p2)==1:
+        if len(p1)==1:
+            return [p1[0][0], p1[0][1]]
+        if len(p2)==1:
+            return [p2[0][0], p2[0][1]]
+    else:
+        gens1 = []
+        gens2 = []
+        for x in __combinations(p1[1:], p2[1:]):
+            gens1.append(p1[0][0] + x)
+            gens1.append(p1[0][1] + x)
+        for x in __combinations(p1, p2[1:]):
+            gens2.append(p2[0][0] + x)
+            gens2.append(p2[0][1] + x)
+        arr = [gens1, gens2]
+        return arr
 
 def dna_codon_table():
     table = {
