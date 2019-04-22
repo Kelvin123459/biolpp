@@ -1,4 +1,4 @@
-# from Bio import SeqIO
+from itertools import groupby
 import sys
 
 def dna_to_rna(dna):
@@ -39,44 +39,45 @@ def complement_dna(dna):
         answer.append(complement[nucleotide])
     return ''.join(answer[::-1])
 
-def complement_dna(file):
+def complement_dna_file(file):
     readFile = open(file, 'r')
     dna = readFile.read()
     return complement_dna(dna)
 
 def recurrence(n, k):
     a, b = 0, 1
-    for i in xrange(1, n):
+    for i in range(1, n):
         a, b = b, k * a + b
     return b
 
 def to_protein(seq, type):
     if type.lower() == 'dna':
         table = dna_codon_table()
-    elif type.lower == 'rna':
+    elif type.lower() == 'rna':
         table = rna_codon_table()
     else:
         print('Sequence type is not valid')
         return 0;
     protein = ""
-    if len(seq) % 3 == 0:
-        for i in range(0, len(range), 3):
-            codon = seq[i:i + 3]
-            protein += table[codon]
+    for i in range(0, len(seq) - (3 + len(seq) % 3), 3):
+        if table[seq[i:i + 3]] == "STOP":
+            break
+        protein += table[seq[i:i + 3]]
     return protein
 
 def hamming_distance(seq1, seq2):
     count = 0
-    for i in xrange(len(s)):
+    for i in range(len(seq1)):
         if seq1[i] != seq2[i]:
             count += 1
     return count
 
 def gc_content(file):
     seq = read_fasta(file)
-    seq2 = seq.upper()
-    gc_count = seq.count("G") + seq.count("C")
-    return 100 * (float(gc_count) / len(seq))
+    print('GC Content - Reading file: '+ file)
+    for s_id, sequence in seq.items():
+        gc_count = sequence.count("G") + sequence.count("C")
+        print("\t", s_id,': ', 100 * (float(gc_count) / len(sequence)))
 
 def motif_interval(seq, splice):
     result = []
@@ -85,7 +86,6 @@ def motif_interval(seq, splice):
             result.append(i + 1)
     return result
 
-# def consensus():
 def mendel_table(type1, type2):
     arr = __combinations(type1, type2)
     table = __make_table(arr[0], arr[1])
@@ -118,24 +118,95 @@ def mendel_table_write(type1, type2, file):
     sys.stdout.close()
     sys.stdout = original
 
-# commented while import is figured out
-# def read_fasta(fastaFile):
-#     fasta_sequences = SeqIO.parse(open(fastaFile), 'fasta')
-#     return fasta_sequences
-    # with open(output_file) as out_file:
-    #     for fasta in fasta_sequences:
-    #         name, sequence = fasta.id, str(fasta.seq)
-    #         new_sequence = some_function(sequence)
-    #         write_fasta(out_file)
+def rna_inferring(seq):
+    freqs = {}
+    RNA_CDT = rna_codon_table()
+    for k, v in RNA_CDT.items():
+        if v not in freqs:
+            freqs[v] = 0
+        freqs[v] += 1
+    result = freqs
+    stop = result['STOP']
+    for c in seq:
+        stop *= result[c]
+    return stop
 
-# not working right now
-# def read_fasta(fasta):
-#     fh = open(fasta)
-#     faiter = (x[1] for x in groupby(fh, lambda line: line[0] == ">"))
-#     for header in faiter:
-#         headerStr = header.__next__()[1:].strip()
-#         seq = "".join(s.strip() for s in faiter.__next__())
-#         yield (headerStr, seq)
+def rna_inferring_file(seq):
+    readFile = open(file, 'r')
+    rna = readFile.read()
+    return rna_inferring(rna)
+
+def read_fasta(fasta):
+    file = open(fasta, 'r')
+    file_data = file.readlines()
+    file.close()
+    sequences = {}
+    current_seq = ''
+    for i in file_data:
+        if i[0] == '>':
+            current_seq = i[1:].rstrip()
+            sequences[current_seq] = ''
+        else:
+            sequences[current_seq] += i.rstrip()
+    return sequences
+
+def print_CDT(type):
+    if type.lower() == 'dna':
+        cdt = dna_codon_table()
+    elif type.lower() == 'rna':
+        cdt = rna_codon_table()
+    else:
+        print('Invalid Argument for Sequence type')
+        return 0
+    count = 1
+    for k, n in cdt.items():
+        if count%4==0:
+            print(k, ':', n)
+        else :
+            print(k, ':', n, '|', end=' ')
+        count+=1
+
+def dna_codon_table():
+    table = {
+        'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
+        'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
+        'AAC': 'N', 'AAT': 'N', 'AAA': 'K', 'AAG': 'K',
+        'AGC': 'S', 'AGT': 'S', 'AGA': 'R', 'AGG': 'R',
+        'CTA': 'L', 'CTC': 'L', 'CTG': 'L', 'CTT': 'L',
+        'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCT': 'P',
+        'CAC': 'H', 'CAT': 'H', 'CAA': 'Q', 'CAG': 'Q',
+        'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGT': 'R',
+        'GTA': 'V', 'GTC': 'V', 'GTG': 'V', 'GTT': 'V',
+        'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCT': 'A',
+        'GAC': 'D', 'GAT': 'D', 'GAA': 'E', 'GAG': 'E',
+        'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGT': 'G',
+        'TCA': 'S', 'TCC': 'S', 'TCG': 'S', 'TCT': 'S',
+        'TTC': 'F', 'TTT': 'F', 'TTA': 'L', 'TTG': 'L',
+        'TAC': 'Y', 'TAT': 'Y', 'TAA': '_', 'TAG': '_',
+        'TGC': 'C', 'TGT': 'C', 'TGA': '_', 'TGG': 'W',
+    }
+    return table
+
+def rna_codon_table():
+    table = {
+        "UUU" : "F", "CUU" : "L", "AUU" : "I", "GUU" : "V",
+        "UUC" : "F", "CUC" : "L", "AUC" : "I", "GUC" : "V",
+        "UUA" : "L", "CUA" : "L", "AUA" : "I", "GUA" : "V",
+        "UUG" : "L", "CUG" : "L", "AUG" : "M", "GUG" : "V",
+        "UCU" : "S", "CCU" : "P", "ACU" : "T", "GCU" : "A",
+        "UCC" : "S", "CCC" : "P", "ACC" : "T", "GCC" : "A",
+        "UCA" : "S", "CCA" : "P", "ACA" : "T", "GCA" : "A",
+        "UCG" : "S", "CCG" : "P", "ACG" : "T", "GCG" : "A",
+        "UAU" : "Y", "CAU" : "H", "AAU" : "N", "GAU" : "D",
+        "UAC" : "Y", "CAC" : "H", "AAC" : "N", "GAC" : "D",
+        "UAA" : "STOP", "CAA" : "Q", "AAA" : "K", "GAA" : "E",
+        "UAG" : "STOP", "CAG" : "Q", "AAG" : "K", "GAG" : "E",
+        "UGU" : "C", "CGU" : "R", "AGU" : "S", "GGU" : "G",
+        "UGC" : "C", "CGC" : "R", "AGC" : "S", "GGC" : "G",
+        "UGA" : "STOP", "CGA" : "R", "AGA" : "R", "GGA" : "G",
+        "UGG" : "W", "CGG" : "R", "AGG" : "R", "GGG" : "G"
+    }
+    return table
 
 def __make_table(p1, p2):
     table = []
@@ -188,46 +259,3 @@ def __combinations(p1, p2):
             gens2.append(p2[0][1] + x)
         arr = [gens1, gens2]
         return arr
-
-def dna_codon_table():
-    table = {
-        'ATA': 'I', 'ATC': 'I', 'ATT': 'I', 'ATG': 'M',
-        'ACA': 'T', 'ACC': 'T', 'ACG': 'T', 'ACT': 'T',
-        'AAC': 'N', 'AAT': 'N', 'AAA': 'K', 'AAG': 'K',
-        'AGC': 'S', 'AGT': 'S', 'AGA': 'R', 'AGG': 'R',
-        'CTA': 'L', 'CTC': 'L', 'CTG': 'L', 'CTT': 'L',
-        'CCA': 'P', 'CCC': 'P', 'CCG': 'P', 'CCT': 'P',
-        'CAC': 'H', 'CAT': 'H', 'CAA': 'Q', 'CAG': 'Q',
-        'CGA': 'R', 'CGC': 'R', 'CGG': 'R', 'CGT': 'R',
-        'GTA': 'V', 'GTC': 'V', 'GTG': 'V', 'GTT': 'V',
-        'GCA': 'A', 'GCC': 'A', 'GCG': 'A', 'GCT': 'A',
-        'GAC': 'D', 'GAT': 'D', 'GAA': 'E', 'GAG': 'E',
-        'GGA': 'G', 'GGC': 'G', 'GGG': 'G', 'GGT': 'G',
-        'TCA': 'S', 'TCC': 'S', 'TCG': 'S', 'TCT': 'S',
-        'TTC': 'F', 'TTT': 'F', 'TTA': 'L', 'TTG': 'L',
-        'TAC': 'Y', 'TAT': 'Y', 'TAA': '_', 'TAG': '_',
-        'TGC': 'C', 'TGT': 'C', 'TGA': '_', 'TGG': 'W',
-    }
-    return table
-
-def rna_codon_table():
-    table = {
-        "UUU": "F", "UUC": "F", "UUA": "L", "UUG": "L",
-        "UCU": "S", "UCC": "s", "UCA": "S", "UCG": "S",
-        "UAU": "Y", "UAC": "Y", "UAA": "STOP", "UAG": "STOP",
-        "UGU": "C", "UGC": "C", "UGA": "STOP", "UGG": "W",
-        "CUU": "L", "CUC": "L", "CUA": "L", "CUG": "L",
-        "CCU": "P", "CCC": "P", "CCA": "P", "CCG": "P",
-        "CAU": "H", "CAC": "H", "CAA": "Q", "CAG": "Q",
-        "CGU": "R", "CGC": "R", "CGA": "R", "CGG": "R",
-        "AUU": "I", "AUC": "I", "AUA": "I", "AUG": "M",
-        "ACU": "T", "ACC": "T", "ACA": "T", "ACG": "T",
-        "AAU": "N", "AAC": "N", "AAA": "K", "AAG": "K",
-        "AGU": "S", "AGC": "S", "AGA": "R", "AGG": "R",
-        "GUU": "V", "GUC": "V", "GUA": "V", "GUG": "V",
-        "GCU": "A", "GCC": "A", "GCA": "A", "GCG": "A",
-        "GAU": "D", "GAC": "D", "GAA": "E", "GAG": "E",
-        "GGU": "G", "GGC": "G", "GGA": "G", "GGG": "G",
-    }
-    return table
-
