@@ -178,6 +178,19 @@ def prot_weight(protein):
         weight += table[prot]
     return weight
 
+def prot_infer(weight):
+    table = __monoisotopic_mass_table()
+    result = ''
+    spectrum = list(map(float, weight.split()))
+    inverted_table = {}
+    for isotope, iweight in table.items():
+        inverted_table[round(iweight, 4)] = isotope
+    for i in range(1, len(spectrum)):
+        a = spectrum[i - 1]
+        b = spectrum[i]
+        result += inverted_table[round(b - a, 4)]
+    return result
+
 def phylogen(file, method):
     tree = Phylo.read(file, 'phyloxml')
     if method.lower() == 'console':

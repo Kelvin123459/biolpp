@@ -21,8 +21,15 @@ def main():
     # bio.complement_dna_file('file.txt')
     # bio.open_read_frame('file.txt')
     # print(bio.prot_weight("S"))
-    bio.phylogen('tree.xml', 'console')
-    bio.phylogen('tree.xml', 'pylab')
+    # bio.phylogen('tree.xml', 'console')
+    # bio.phylogen('tree.xml', 'pylab')
+    print(bio.prot_infer("""
+                    3524.8542
+                    3710.9335
+                    3841.974
+                    3970.0326
+                    4057.0646
+                    """))
 if __name__ == '__main__':
     main()
 
