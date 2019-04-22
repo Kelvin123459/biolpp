@@ -1,5 +1,6 @@
 import sys
-
+from Bio import Phylo
+import pylab
 #--------------------------------------------------------------------------------#
 #                                                                                #
 #                                                                                #
@@ -170,6 +171,25 @@ def open_read_frame(file):
         results_b = __orf(complement_dna(sequence))
         print("\n\t\t".join(set(results + results_b)))
 
+def prot_weight(protein):
+    weight = 0
+    table = __monoisotopic_mass_table()
+    for prot in protein:
+        weight += table[prot]
+    return weight
+
+def phylogen(file, method):
+    tree = Phylo.read(file, 'phyloxml')
+    if method.lower() == 'console':
+        Phylo.draw_ascii(tree)
+    elif method.lower() == 'pylab':
+        try:
+            Phylo.draw(tree)
+        except:
+            print('To use this function, install pylab \n\t Command: pip install pylab')
+    else:
+        print('Not supported method. Select from: \n\t->console\n\t->pylab')
+
 def print_CDT(type):
     if type.lower() == 'dna':
         cdt = __dna_codon_table()
@@ -313,5 +333,15 @@ def __rna_codon_table():
         "UGC" : "C", "CGC" : "R", "AGC" : "S", "GGC" : "G",
         "UGA" : "STOP", "CGA" : "R", "AGA" : "R", "GGA" : "G",
         "UGG" : "W", "CGG" : "R", "AGG" : "R", "GGG" : "G"
+    }
+    return table
+
+def __monoisotopic_mass_table():
+    table = {
+        'A': 71.037110, 'C': 103.00919, 'D': 115.02694, 'E': 129.04259,
+        'F': 147.06841, 'G': 57.021460, 'H': 137.05891, 'I': 113.08406,
+        'K': 128.09496, 'L': 113.08406, 'M': 131.04049, 'N': 114.04293,
+        'P': 97.052760, 'Q': 128.05858, 'R': 156.10111, 'S': 87.032030,
+        'T': 101.04768, 'V': 99.068410, 'W': 186.07931, 'Y': 163.06333,
     }
     return table

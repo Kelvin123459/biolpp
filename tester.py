@@ -13,13 +13,16 @@ def main():
     # print(bio.to_protein('AGC', 'dna'))
     # print(bio.to_protein('AUGGCCAUGGCGCCCAGAACUGAGAUCAAUAGUACCCGUAUUAACGGGUGA', 'rna'))
     # print(bio.hamming_distance('GAGCCTACTAACGGGAT', 'CATCGTAATGACGGCCT'))
-    # print(bio.read_fasta('file.txt'))
+    # # print(bio.read_fasta('file.txt'))
     # bio.gc_content('file.txt')
     # print(bio.motif_interval('ACGTACGTACGTACGT', 'GTA'))
     # bio.print_CDT('dna')
     # bio.print_CDT('rna')
     # bio.complement_dna_file('file.txt')
-    bio.open_read_frame('file.txt')
+    # bio.open_read_frame('file.txt')
+    # print(bio.prot_weight("S"))
+    bio.phylogen('tree.xml', 'console')
+    bio.phylogen('tree.xml', 'pylab')
 if __name__ == '__main__':
     main()
 
