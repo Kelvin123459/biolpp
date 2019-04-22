@@ -23,15 +23,15 @@ reserved = {
     'acons': 'ACONSEN',
     'dcons': 'DCONSEN',
     'drawtree': 'DRAW',
-    'rna': 'TYPE',
-    'dna': 'TYPE',
-    'protein': 'TYPE',
+    'rna': 'RTYPE',
+    'dna': 'DTYPE',
+    'protein': 'PTYPE',
     'print': 'PRINT',
-    'fasta': 'FORMAT',
-    'txt': 'FORMAT',
+    'fasta': 'FFORMAT',
+    'txt': 'TFORMAT',
     'void': 'VOID',
-    'bseq': 'RTYPE',
-    'btree': 'RTYPE',
+    'bseq': 'STYPE',
+    'btree': 'TTYPE',
     'varlist': 'VARLIST'
 }
 
@@ -89,4 +89,15 @@ def t_COMMENT(t):
 
 
 # Lexer
-lex.lex()
+
+lexer = lex.lex()
+
+# Tester
+
+# lexer.input("   bseq abc = btree .read()")
+#
+# while True:
+#     tok = lexer.token()
+#     if not tok:
+#         break
+#     print(tok)
