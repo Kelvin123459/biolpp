@@ -32,7 +32,11 @@ reserved = {
     'rnainf2': 'RNAINF2',
     'orf': 'ORF',
     'protw': 'PROTW',
-    'varlist': 'VARLIST'
+    'varlist': 'VARLIST',
+    'motif': 'MOTIF',
+    'punnett': 'PUNNETT',
+    'wpunnett': 'WPUNNETT',
+    'protinfer': 'PROTINFER'
 }
 
 # tokens

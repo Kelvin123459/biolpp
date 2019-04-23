@@ -1,7 +1,7 @@
 import biolpp_algorithms as bio
 
 def main():
-    # bio.mendel_table_write('Aa Bb'.split(' '), 'Cc Dd'.split(' '), "out")
+    bio.mendel_table_write('Aa Bb'.split(' '), 'Cc Dd'.split(' '), "out")
     # bio.mendel_table('Aa Bb'.split(' '), 'Cc Dd'.split(' '))
     # print(bio.rna_inferring('MA'))
     # print(bio.rna_inferring(bio.read_seq('HSBGPG Human gene for bone gla protein (BGP)','file.txt')))
@@ -24,13 +24,7 @@ def main():
     # print(bio.prot_weight("S"))
     # bio.phylogen('tree.xml', 'console')
     # bio.phylogen('tree.xml', 'pylab')
-    # print(bio.prot_infer("""
-    #                 3524.8542
-    #                 3710.9335
-    #                 3841.974
-    #                 3970.0326
-    #                 4057.0646
-    #                 """))
+    # print(bio.prot_infer("""3524.8542 3710.9335 3841.974 3970.0326 4057.0646"""))
     # seq = bio.read_seq('HSGLTH1 Human theta 1-globin gene', 'file.txt')
 if __name__ == '__main__':
     main()

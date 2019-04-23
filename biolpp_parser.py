@@ -73,6 +73,10 @@ def p_method_one(p):
                     | TRANSCF LPAR STRING RPAR
                     | RTRANSCF LPAR STRING RPAR
                     | PROTW LPAR ID RPAR
+                    | MOTIF LPAR ID COMMA STRING RPAR
+                    | PUNNETT LPAR STRING COMMA STRING RPAR
+                    | WPUNNETT LPAR STRING COMMA STRING COMMA STRING RPAR
+                    | PROTINFER LPAR STRING RPAR
                 '''
 
     if p[1] == "print":
@@ -116,7 +120,14 @@ def p_method_one(p):
         p[0] = balg.rna_inferring_file(str(p[3]).strip('\''))
     elif p[1] == "protw":
         p[0] = balg.prot_weight(str(variables.get(p[3])).strip('\''))
-
+    elif p[1] == "motif":
+        p[0] = balg.motif_interval(str(variables.get(p[3])).strip('\''), str(p[5]).strip('\''))
+    elif p[1] == "punnett":
+        p[0] = balg.mendel_table(str(p[3]).strip('\'').split(' '), str(p[5]).strip('\'').split(' '))
+    elif p[1] == "wpunnett":
+        p[0] = balg.mendel_table_write(str(p[3]).strip('\'').split(' '), str(p[5]).strip('\'').split(' '), str(p[7]).strip('\''))
+    elif p[1] == "protinfer":
+        p[0] = balg.prot_infer(str(p[3]).strip('\''))
 
 def p_method_two(p):
     '''method_two : SEQ LPAR STRING RPAR
@@ -156,3 +167,4 @@ def p_error(p):
 
 def getparser():
     return yacc.yacc()
+

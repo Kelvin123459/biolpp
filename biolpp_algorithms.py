@@ -133,7 +133,6 @@ def mendel_table(type1, type2):
             frequencies.append(x + ' & ' + str(float(count) / float((len(genotypes))) * 100) + '\\% \\\ \\hline \n')
         calculated.append(sorted(x))
     return_arr = [printed_table, frequencies]
-    return return_arr
 
 def mendel_table_write(type1, type2, file):
     txt_file = file + ".txt"
