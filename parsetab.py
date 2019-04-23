@@ -6,9 +6,9 @@ _tabversion = '3.10'
 
 _lr_method = 'LALR'
 
-_lr_signature = 'ACONSEN COMMA COMP COMPF CONSEN COUNT CTABLE DCONSEN DRAW DTYPE EQUALS GCCON HAMDIS ID INT LPAR ORF PRINT PROTW RCOMP RCOMPF READ RECUR RNAINF RNAINF2 RPAR RTRANSC RTRANSCF RTYPE SEQ STRING TRANSC TRANSCF TRANSL VARLIST WRITEstatement : VARLIST statement : ID EQUALS ID\n                    | ID EQUALS result\n                    statement : ID\n                   statement : result\n                   result : method_one\n                | method_two\n                | method_three\n                method_one : PRINT LPAR STRING RPAR\n                    | COMP LPAR ID RPAR\n                    | RCOMP LPAR ID RPAR\n                    | TRANSC LPAR ID RPAR\n                    | RTRANSC LPAR ID RPAR\n                    | CTABLE LPAR INT RPAR\n                    | COUNT LPAR ID RPAR\n                    | CONSEN LPAR ID RPAR\n                    | ACONSEN LPAR ID RPAR\n                    | DCONSEN LPAR ID RPAR\n                    | TRANSL LPAR ID COMMA DTYPE RPAR\n                    | TRANSL LPAR ID COMMA RTYPE RPAR\n                    | READ LPAR STRING COMMA STRING RPAR\n                    | WRITE LPAR ID RPAR\n                    | GCCON LPAR STRING RPAR\n                    | RNAINF LPAR ID RPAR\n                    | RNAINF2 LPAR STRING RPAR\n                    | ORF LPAR STRING RPAR\n                    | COMPF LPAR STRING RPAR\n                    | RCOMPF LPAR STRING RPAR\n                    | TRANSCF LPAR STRING RPAR\n                    | RTRANSCF LPAR STRING RPAR\n                    | PROTW LPAR ID RPAR\n                method_two : SEQ LPAR STRING RPAR\n                    | HAMDIS LPAR ID COMMA ID RPAR\n                    | RECUR LPAR INT COMMA INT RPAR\n                    method_three : DRAW LPAR INT COMMA STRING RPAR\n                    empty :  '
+_lr_signature = 'COMMA COMP COMPF CTABLE DRAW DTYPE EQUALS GCCON HAMDIS ID INT LPAR MOTIF ORF PRINT PROTINFER PROTW PUNNETT RCOMP RCOMPF READ RECUR RNAINF RNAINF2 RPAR RTRANSC RTRANSCF RTYPE SEQ STRING TRANSC TRANSCF TRANSL VARLIST WPUNNETT WRITEstatement : VARLIST statement : ID EQUALS ID\n                    | ID EQUALS result\n                    statement : ID\n                   statement : result\n                   result : method_one\n                | method_two\n                | method_three\n                method_one : PRINT LPAR STRING RPAR\n                    | COMP LPAR ID RPAR\n                    | RCOMP LPAR ID RPAR\n                    | TRANSC LPAR ID RPAR\n                    | RTRANSC LPAR ID RPAR\n                    | CTABLE LPAR INT RPAR\n                    | TRANSL LPAR ID COMMA DTYPE RPAR\n                    | TRANSL LPAR ID COMMA RTYPE RPAR\n                    | READ LPAR STRING COMMA STRING RPAR\n                    | WRITE LPAR ID RPAR\n                    | GCCON LPAR STRING RPAR\n                    | RNAINF LPAR ID RPAR\n                    | RNAINF2 LPAR STRING RPAR\n                    | ORF LPAR STRING RPAR\n                    | COMPF LPAR STRING RPAR\n                    | RCOMPF LPAR STRING RPAR\n                    | TRANSCF LPAR STRING RPAR\n                    | RTRANSCF LPAR STRING RPAR\n                    | PROTW LPAR ID RPAR\n                    | MOTIF LPAR ID COMMA STRING RPAR\n                    | PUNNETT LPAR STRING COMMA STRING RPAR\n                    | WPUNNETT LPAR STRING COMMA STRING COMMA STRING RPAR\n                    | PROTINFER LPAR STRING RPAR\n                method_two : SEQ LPAR STRING RPAR\n                    | HAMDIS LPAR ID COMMA ID RPAR\n                    | RECUR LPAR INT COMMA INT RPAR\n                    method_three : DRAW LPAR INT COMMA STRING RPAR\n                    empty :  '
     
-_lr_action_items = {'VARLIST':([0,],[2,]),'ID':([0,34,36,37,38,39,41,42,43,44,45,47,49,56,58,112,],[3,61,64,65,66,67,69,70,71,72,73,75,77,84,86,118,]),'PRINT':([0,34,],[8,8,]),'COMP':([0,34,],[9,9,]),'RCOMP':([0,34,],[10,10,]),'TRANSC':([0,34,],[11,11,]),'RTRANSC':([0,34,],[12,12,]),'CTABLE':([0,34,],[13,13,]),'COUNT':([0,34,],[14,14,]),'CONSEN':([0,34,],[15,15,]),'ACONSEN':([0,34,],[16,16,]),'DCONSEN':([0,34,],[17,17,]),'TRANSL':([0,34,],[18,18,]),'READ':([0,34,],[19,19,]),'WRITE':([0,34,],[20,20,]),'GCCON':([0,34,],[21,21,]),'RNAINF':([0,34,],[22,22,]),'RNAINF2':([0,34,],[23,23,]),'ORF':([0,34,],[24,24,]),'COMPF':([0,34,],[25,25,]),'RCOMPF':([0,34,],[26,26,]),'TRANSCF':([0,34,],[27,27,]),'RTRANSCF':([0,34,],[28,28,]),'PROTW':([0,34,],[29,29,]),'SEQ':([0,34,],[30,30,]),'HAMDIS':([0,34,],[31,31,]),'RECUR':([0,34,],[32,32,]),'DRAW':([0,34,],[33,33,]),'$end':([1,2,3,4,5,6,7,61,62,89,90,91,92,93,94,95,96,97,98,101,102,103,104,105,106,107,108,109,110,111,121,122,123,124,125,126,],[0,-1,-4,-5,-6,-7,-8,-2,-3,-9,-10,-11,-12,-13,-14,-15,-16,-17,-18,-22,-23,-24,-25,-26,-27,-28,-29,-30,-31,-32,-19,-20,-21,-33,-34,-35,]),'EQUALS':([3,],[34,]),'LPAR':([8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,]),'STRING':([35,46,48,50,51,52,53,54,55,57,100,114,],[63,74,76,78,79,80,81,82,83,85,117,120,]),'INT':([40,59,60,113,],[68,87,88,119,]),'RPAR':([63,64,65,66,67,68,69,70,71,72,75,76,77,78,79,80,81,82,83,84,85,115,116,117,118,119,120,],[89,90,91,92,93,94,95,96,97,98,101,102,103,104,105,106,107,108,109,110,111,121,122,123,124,125,126,]),'COMMA':([73,74,86,87,88,],[99,100,112,113,114,]),'DTYPE':([99,],[115,]),'RTYPE':([99,],[116,]),}
+_lr_action_items = {'VARLIST':([0,],[2,]),'ID':([0,34,36,37,38,39,41,43,45,52,53,58,112,],[3,61,64,65,66,67,69,71,73,80,81,86,121,]),'PRINT':([0,34,],[8,8,]),'COMP':([0,34,],[9,9,]),'RCOMP':([0,34,],[10,10,]),'TRANSC':([0,34,],[11,11,]),'RTRANSC':([0,34,],[12,12,]),'CTABLE':([0,34,],[13,13,]),'TRANSL':([0,34,],[14,14,]),'READ':([0,34,],[15,15,]),'WRITE':([0,34,],[16,16,]),'GCCON':([0,34,],[17,17,]),'RNAINF':([0,34,],[18,18,]),'RNAINF2':([0,34,],[19,19,]),'ORF':([0,34,],[20,20,]),'COMPF':([0,34,],[21,21,]),'RCOMPF':([0,34,],[22,22,]),'TRANSCF':([0,34,],[23,23,]),'RTRANSCF':([0,34,],[24,24,]),'PROTW':([0,34,],[25,25,]),'MOTIF':([0,34,],[26,26,]),'PUNNETT':([0,34,],[27,27,]),'WPUNNETT':([0,34,],[28,28,]),'PROTINFER':([0,34,],[29,29,]),'SEQ':([0,34,],[30,30,]),'HAMDIS':([0,34,],[31,31,]),'RECUR':([0,34,],[32,32,]),'DRAW':([0,34,],[33,33,]),'$end':([1,2,3,4,5,6,7,61,62,89,90,91,92,93,94,97,98,99,100,101,102,103,104,105,106,110,111,124,125,126,127,128,130,131,132,134,],[0,-1,-4,-5,-6,-7,-8,-2,-3,-9,-10,-11,-12,-13,-14,-18,-19,-20,-21,-22,-23,-24,-25,-26,-27,-31,-32,-15,-16,-17,-28,-29,-33,-34,-35,-30,]),'EQUALS':([3,],[34,]),'LPAR':([8,9,10,11,12,13,14,15,16,17,18,19,20,21,22,23,24,25,26,27,28,29,30,31,32,33,],[35,36,37,38,39,40,41,42,43,44,45,46,47,48,49,50,51,52,53,54,55,56,57,58,59,60,]),'STRING':([35,42,44,46,47,48,49,50,51,54,55,56,57,96,107,108,109,114,129,],[63,70,72,74,75,76,77,78,79,82,83,84,85,117,118,119,120,123,133,]),'INT':([40,59,60,113,],[68,87,88,122,]),'RPAR':([63,64,65,66,67,68,71,72,73,74,75,76,77,78,79,80,84,85,115,116,117,118,119,121,122,123,133,],[89,90,91,92,93,94,97,98,99,100,101,102,103,104,105,106,110,111,124,125,126,127,128,130,131,132,134,]),'COMMA':([69,70,81,82,83,86,87,88,120,],[95,96,107,108,109,112,113,114,129,]),'DTYPE':([95,],[115,]),'RTYPE':([95,],[116,]),}
 
 _lr_action = {}
 for _k, _v in _lr_action_items.items():
@@ -41,26 +41,26 @@ _lr_productions = [
   ('method_one -> TRANSC LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',60),
   ('method_one -> RTRANSC LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',61),
   ('method_one -> CTABLE LPAR INT RPAR','method_one',4,'p_method_one','biolpp_parser.py',62),
-  ('method_one -> COUNT LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',63),
-  ('method_one -> CONSEN LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',64),
-  ('method_one -> ACONSEN LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',65),
-  ('method_one -> DCONSEN LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',66),
-  ('method_one -> TRANSL LPAR ID COMMA DTYPE RPAR','method_one',6,'p_method_one','biolpp_parser.py',67),
-  ('method_one -> TRANSL LPAR ID COMMA RTYPE RPAR','method_one',6,'p_method_one','biolpp_parser.py',68),
-  ('method_one -> READ LPAR STRING COMMA STRING RPAR','method_one',6,'p_method_one','biolpp_parser.py',69),
-  ('method_one -> WRITE LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',70),
-  ('method_one -> GCCON LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',71),
-  ('method_one -> RNAINF LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',72),
-  ('method_one -> RNAINF2 LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',73),
-  ('method_one -> ORF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',74),
-  ('method_one -> COMPF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',75),
-  ('method_one -> RCOMPF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',76),
-  ('method_one -> TRANSCF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',77),
-  ('method_one -> RTRANSCF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',78),
-  ('method_one -> PROTW LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',79),
-  ('method_two -> SEQ LPAR STRING RPAR','method_two',4,'p_method_two','biolpp_parser.py',126),
-  ('method_two -> HAMDIS LPAR ID COMMA ID RPAR','method_two',6,'p_method_two','biolpp_parser.py',127),
-  ('method_two -> RECUR LPAR INT COMMA INT RPAR','method_two',6,'p_method_two','biolpp_parser.py',128),
-  ('method_three -> DRAW LPAR INT COMMA STRING RPAR','method_three',6,'p_method_three','biolpp_parser.py',139),
-  ('empty -> <empty>','empty',0,'p_empty','biolpp_parser.py',150),
+  ('method_one -> TRANSL LPAR ID COMMA DTYPE RPAR','method_one',6,'p_method_one','biolpp_parser.py',63),
+  ('method_one -> TRANSL LPAR ID COMMA RTYPE RPAR','method_one',6,'p_method_one','biolpp_parser.py',64),
+  ('method_one -> READ LPAR STRING COMMA STRING RPAR','method_one',6,'p_method_one','biolpp_parser.py',65),
+  ('method_one -> WRITE LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',66),
+  ('method_one -> GCCON LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',67),
+  ('method_one -> RNAINF LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',68),
+  ('method_one -> RNAINF2 LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',69),
+  ('method_one -> ORF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',70),
+  ('method_one -> COMPF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',71),
+  ('method_one -> RCOMPF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',72),
+  ('method_one -> TRANSCF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',73),
+  ('method_one -> RTRANSCF LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',74),
+  ('method_one -> PROTW LPAR ID RPAR','method_one',4,'p_method_one','biolpp_parser.py',75),
+  ('method_one -> MOTIF LPAR ID COMMA STRING RPAR','method_one',6,'p_method_one','biolpp_parser.py',76),
+  ('method_one -> PUNNETT LPAR STRING COMMA STRING RPAR','method_one',6,'p_method_one','biolpp_parser.py',77),
+  ('method_one -> WPUNNETT LPAR STRING COMMA STRING COMMA STRING RPAR','method_one',8,'p_method_one','biolpp_parser.py',78),
+  ('method_one -> PROTINFER LPAR STRING RPAR','method_one',4,'p_method_one','biolpp_parser.py',79),
+  ('method_two -> SEQ LPAR STRING RPAR','method_two',4,'p_method_two','biolpp_parser.py',133),
+  ('method_two -> HAMDIS LPAR ID COMMA ID RPAR','method_two',6,'p_method_two','biolpp_parser.py',134),
+  ('method_two -> RECUR LPAR INT COMMA INT RPAR','method_two',6,'p_method_two','biolpp_parser.py',135),
+  ('method_three -> DRAW LPAR INT COMMA STRING RPAR','method_three',6,'p_method_three','biolpp_parser.py',146),
+  ('empty -> <empty>','empty',0,'p_empty','biolpp_parser.py',157),
 ]

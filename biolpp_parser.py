@@ -82,13 +82,13 @@ def p_method_one(p):
     if p[1] == "print":
         print(balg.read_fasta(str(p[3]).strip('\'')))
     elif p[1] == "comp":
-        p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
+        p[0] = balg.complement_dna(str(variables.get(p[3])).strip('\''))
     elif p[1] == "rcomp":
-        p[0] = balg.rcomplement_dna(str(variables.get(p[3])[0]).strip('\''))
+        p[0] = balg.rcomplement_dna(str(variables.get(p[3])).strip('\''))
     elif p[1] == "transc":
-        p[0] = balg.dna_to_rna(str(variables.get(p[3])[0]).strip('\''))
+        p[0] = balg.dna_to_rna(str(variables.get(p[3])).strip('\''))
     elif p[1] == "rtransc":
-        p[0] = balg.rna_to_dna(str(variables.get(p[3])[0]).strip('\''))
+        p[0] = balg.rna_to_dna(str(variables.get(p[3])).strip('\''))
     elif p[1] == "ctable":
         if p[3] == 1:
             balg.print_CDT('dna')
@@ -121,7 +121,7 @@ def p_method_one(p):
     elif p[1] == "protw":
         p[0] = balg.prot_weight(str(variables.get(p[3])).strip('\''))
     elif p[1] == "motif":
-        p[0] = balg.motif_interval(str(variables.get(p[3])).strip('\''), str(p[5]).strip('\''))
+        p[0] = balg.motif_interval(str(variables.get(p[3])).strip('\''), str(p[5]).strip('\'').upper())
     elif p[1] == "punnett":
         p[0] = balg.mendel_table(str(p[3]).strip('\'').split(' '), str(p[5]).strip('\'').split(' '))
     elif p[1] == "wpunnett":
@@ -137,7 +137,7 @@ def p_method_two(p):
     if p[1] == "seq":
         p[0] = str(p[3]).strip('\'').upper()
     elif p[1] == "hamdis":
-        p[0] = balg.hamming_distance(str(variables.get(p[3])[0]).strip('\''), str(variables.get(p[5])[0]).strip('\''))
+        p[0] = balg.hamming_distance(str(variables.get(p[3])).strip('\''), str(variables.get(p[5])).strip('\''))
     elif p[1] == "recur":
         p[0] = balg.recurrence(p[3], p[5])
 

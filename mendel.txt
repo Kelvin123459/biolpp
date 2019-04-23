@@ -1,0 +1,23 @@
+
+      cD      CD      cD      CD 
+   --------------------------------
+ab | cDab |  CDab |  cDab |  CDab |  
+   --------------------------------
+ab | cDab |  CDab |  cDab |  CDab |  
+   --------------------------------
+ab | cDab |  CDab |  cDab |  CDab |  
+   --------------------------------
+ab | cDab |  CDab |  cDab |  CDab |  
+   --------------------------------
+Frequencies:
+____________________________________________
+cDab genotype -> 50.0%.
+CDab genotype -> 50.0%.
+
+
+a=seq('gagcctactaacgggat')
+b=seq('catcgtaatgacggcct')
+hamdis(a,b)
+
+a=seq('acgtacgtacgtacgt')
+motif(a,'gat')
