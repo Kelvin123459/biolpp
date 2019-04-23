@@ -148,7 +148,7 @@ def rna_inferring_file(file):
         print(rna_inferring(sequence))
 
 def read_fasta(fasta):
-    file = open(fasta, "r")
+    file = open(fasta, 'r')
     file_data = file.readlines()
     file.close()
     sequences = {}
@@ -160,6 +160,11 @@ def read_fasta(fasta):
         else:
             sequences[current_seq] += i.rstrip()
     return sequences
+
+def write(name, value):
+    file = open("output.txt", "a")
+    file.write(name+": "+str(value)+"\n")
+    file.close()
 
 def open_read_frame(file):
     seq = read_fasta(file)

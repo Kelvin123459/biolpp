@@ -72,17 +72,18 @@ def p_method_one(p):
                     | CMOTIF LPAR list RPAR
                     | TRANSL LPAR ID RPAR
                     | READ LPAR STRING RPAR
+                    | WRITE LPAR ID RPAR
                 '''
     if p[1] == "print":
         print(variables.get(p[3]))
     elif p[1] == "comp":
-        p[0] = balg.complement_dna(variables.get(p[3]))
+        p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "rcomp":
-        p[0] = balg.complement_dna(variables.get(p[3]))
+        p[0] = balg.complement_dna(variables.get(p[3])[0])
     elif p[1] == "transc":
-        p[0] = balg.dna_to_rna(variables.get(p[3]))
+        p[0] = balg.dna_to_rna(variables.get(p[3])[0])
     elif p[1] == "rtransc":
-        p[0] = balg.rna_to_dna(variables.get(p[3]))
+        p[0] = balg.rna_to_dna(variables.get(p[3])[0])
     elif p[1] == "ctable":
         if p[3] == 1:
             balg.print_CDT('dna')
@@ -93,15 +94,14 @@ def p_method_one(p):
     elif p[1] == "transl":
         p[0] = balg.to_protein(variables.get(p[3])[0], variables.get(p[3])[1])
     elif p[1] == "read":
-        p[0] = balg.read_fasta(str(p[3]))
+        p[0] = balg.read_fasta(str(p[3]).strip('\''))
+    elif p[1] == "write":
+        p[0] = balg.write(p[3], variables.get(p[3]))
     #elif p[1] == "count":
     #elif p[1] == "cons":
     #elif p[1] == "acons":
     #elif p[1] == "dcons":
     #elif p[1] == "createmotif":
-
-
-
 
 
 def p_method_two(p):
@@ -111,12 +111,16 @@ def p_method_two(p):
     p[0] = [p[3], p[5]]
 
 
-
 def p_method_three(p):
-    '''method_three : DRAW LPAR INT COMMA ID COMMA STRING RPAR
-                    | WRITE LPAR FFORMAT COMMA ID COMMA STRING RPAR
-                    | WRITE LPAR TFORMAT COMMA ID COMMA STRING RPAR
+    '''method_three : DRAW LPAR INT COMMA STRING RPAR
                     '''
+    if p[3] == 1:
+        p[0] = balg.phylogen(str(p[5]).strip('\''), 'console')
+    elif p[3] == 2:
+        p[0] = balg.phylogen(str(p[5]).strip('\''), 'pylab')
+    else:
+        print("Error: Incorrect parameter.")
+
 
 def p_list(p):
     '''list : list COMMA list
