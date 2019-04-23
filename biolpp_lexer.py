@@ -41,7 +41,11 @@ reserved = {
     'recur': 'RECUR',
     'rnainf': 'RNAINF',
     'orf': 'ORF',
-    'varlist': 'VARLIST'
+    'varlist': 'VARLIST',
+    'motif': 'MOTIF',
+    'punnett': 'PUNNETT',
+    'wpunnett': 'WPUNNETT',
+    'protinfer': 'PROTINFER'
 }
 
 # tokens

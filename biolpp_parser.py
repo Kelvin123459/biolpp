@@ -79,6 +79,10 @@ def p_method_one(p):
                     | RCOMPF LPAR ID RPAR
                     | TRANSCF LPAR ID RPAR
                     | RTRANSCF LPAR ID RPAR
+                    | MOTIF LPAR ID COMMA STRING RPAR
+                    | PUNNETT LPAR STRING COMMA STRING RPAR
+                    | WPUNNETT LPAR STRING COMMA STRING COMMA STRING RPAR
+                    | PROTINFER LPAR STRING RPAR
                 '''
     #| CMOTIF LPAR list RPAR
 
@@ -111,6 +115,14 @@ def p_method_one(p):
         p[0] = balg.rna_inferring(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "orf":
         p[0] = balg.open_read_frame(str(p[3]).strip('\''))
+    elif p[1] == "motif":
+        p[0] = balg.motif_interval(str(variables.get(p[3])).strip('\''), str(p[5]).strip('\''))
+    elif p[1] == "punnett":
+        p[0] = balg.mendel_table(str(p[3]).strip('\'').split(' '), str(p[5]).strip('\'').split(' '))
+    elif p[1] == "wpunnett":
+        p[0] = balg.mendel_table_write(str(p[3]).strip('\'').split(' '), str(p[5]).strip('\'').split(' '), str(p[7]).strip('\''))
+    elif p[1] == "protinfer":
+        p[0] = balg.prot_infer(str(p[3]).strip('\''))
     #elif p[1] == "count":
     #elif p[1] == "cons":
     #elif p[1] == "acons":
@@ -152,32 +164,3 @@ def p_method_three(p):
 def getparser():
     return yacc.yacc()
 
-
-# Format = fasta, txt (string)
-# Type read(format, directory) -> type (sequence|tree)
-# ID = type.read(format(string),directory(string))
-#
-# write(format, directory) -> void (makes file with results)
-# Statement: write(str,str)
-#
-# print(ID) -> prints to terminal (same as python print)
-# print(str)
-#
-# sequence(seq_string, {type (rna|dna)}) -> sequence
-# ID = SEQ(str, type)
-#
-# complement(sequence rna | dna) -> sequence (rna |dna)
-# Id = comp(ID)
-#
-# reverse_complement(sequence rna | dna) -> sequence (rna | dna)
-#
-# transcription(sequence dna) -> sequence rna
-#
-# reverse_transcription(sequence rna) -> sequence dna
-#
-# translate(sequence rna|dna, {table (string|int)}) -> sequence protein
-# ID = trans(ID, INT)
-#
-# codon_table({string|int type} default is “Standard”/1) -> table
-#
-# ID(variable) -> prints variable value in console

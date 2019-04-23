@@ -113,7 +113,7 @@ def motif_interval(seq, splice):
         if seq[i:i + len(splice)] == splice:
             result.append(i + 1)
     return result
-#=====
+
 def mendel_table(type1, type2):
     arr = __combinations(type1, type2)
     table = __make_table(arr[0], arr[1])
@@ -133,8 +133,8 @@ def mendel_table(type1, type2):
             frequencies.append(x + ' & ' + str(float(count) / float((len(genotypes))) * 100) + '\\% \\\ \\hline \n')
         calculated.append(sorted(x))
     return_arr = [printed_table, frequencies]
-    return return_arr
-#=====
+    # return return_arr
+
 def mendel_table_write(type1, type2, file):
     txt_file = file + ".txt"
     original = sys.stdout
@@ -207,7 +207,7 @@ def prot_weight(protein):
     for prot in protein:
         weight += table[prot]
     return weight
-#=======
+
 def prot_infer(weight):
     table = __monoisotopic_mass_table()
     result = ''
