@@ -18,7 +18,7 @@ def main():
     # print(bio.motif_interval('ACGTACGTACGTACGT', 'GTA'))
     # bio.print_CDT('dna')
     # bio.print_CDT('rna')
-    bio.complement_dna_file('file.txt')
+    # bio.complement_dna_file('file.txt')
     # bio.open_read_frame('file.txt')
     # print(bio.prot_weight("S"))
     # bio.phylogen('tree.xml', 'console')

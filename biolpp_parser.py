@@ -70,7 +70,7 @@ def p_method_one(p):
                     | ACONSEN LPAR ID RPAR
                     | DCONSEN LPAR ID RPAR
                     | TRANSL LPAR ID RPAR
-                    | READ LPAR STRING RPAR
+                    | READ LPAR STRING COMMA STRING RPAR
                     | WRITE LPAR ID RPAR
                     | GCCON LPAR STRING RPAR
                     | RNAINF LPAR ID RPAR
@@ -97,7 +97,7 @@ def p_method_one(p):
     elif p[1] == "transl":
         p[0] = balg.to_protein(str(variables.get(p[3])[0]).strip('\''), variables.get(p[3])[1])
     elif p[1] == "read":
-        p[0] = balg.read_seq(str(p[3]).strip('\''))
+        p[0] = balg.read_seq(str(p[3]).strip('\''), str(p[5]).strip('\''))
     elif p[1] == "write":
         p[0] = balg.write(p[3], variables.get(p[3]))
     elif p[1] == "gccon":

@@ -1,0 +1,29 @@
+
+      CD      cD      Cd      cd 
+   --------------------------------
+AB | CDAB |  cDAB |  CdAB |  cdAB |  
+   --------------------------------
+aB | CDaB |  cDaB |  CdaB |  cdaB |  
+   --------------------------------
+Ab | CDAb |  cDAb |  CdAb |  cdAb |  
+   --------------------------------
+ab | CDab |  cDab |  Cdab |  cdab |  
+   --------------------------------
+Frequencies:
+____________________________________________
+CDAB genotype -> 6.25%.
+cDAB genotype -> 6.25%.
+CdAB genotype -> 6.25%.
+cdAB genotype -> 6.25%.
+CDaB genotype -> 6.25%.
+cDaB genotype -> 6.25%.
+CdaB genotype -> 6.25%.
+cdaB genotype -> 6.25%.
+CDAb genotype -> 6.25%.
+cDAb genotype -> 6.25%.
+CdAb genotype -> 6.25%.
+cdAb genotype -> 6.25%.
+CDab genotype -> 6.25%.
+cDab genotype -> 6.25%.
+Cdab genotype -> 6.25%.
+cdab genotype -> 6.25%.
