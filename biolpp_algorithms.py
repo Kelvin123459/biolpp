@@ -1,13 +1,17 @@
+#============================================================
+#   BioL++ Algorithms & Intermediate Code
+#============================================================
+
+
 import sys
 from Bio import Phylo
+from Bio import SeqIO
+from Bio import Seq
 import pylab
-#--------------------------------------------------------------------------------#
-#                                                                                #
-#                                                                                #
-#                             BIOL++ FUNCTIONS                                   #
-#                                                                                #
-#                                                                                #
-#--------------------------------------------------------------------------------#
+
+
+counter = 0
+
 
 def dna_to_rna(dna):
     dna2 = dna.upper()
@@ -147,6 +151,15 @@ def rna_inferring_file(file):
     for s_id, sequence in seq.items():
         print(rna_inferring(sequence))
 
+def read_seq(file):
+    temp = []
+    global counter
+    for seqrec in SeqIO.parse(file, "fasta"):
+        temp.append(seqrec)
+    retlist = str(temp[counter].seq)
+    counter = (counter + 1) % len(temp)
+    return retlist
+
 def read_fasta(fasta):
     file = open(fasta, 'r')
     file_data = file.readlines()
@@ -224,6 +237,7 @@ def print_CDT(type):
             print(k, ':', n, '|', end=' ')
         count+=1
 
+
 #--------------------------------------------------------------------------------#
 #                                                                                #
 #                                                                                #
@@ -231,6 +245,7 @@ def print_CDT(type):
 #                                                                                #
 #                                                                                #
 #--------------------------------------------------------------------------------#
+
 
 def __make_table(p1, p2):
     table = []

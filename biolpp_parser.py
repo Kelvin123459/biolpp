@@ -69,21 +69,23 @@ def p_method_one(p):
                     | CONSEN LPAR ID RPAR
                     | ACONSEN LPAR ID RPAR
                     | DCONSEN LPAR ID RPAR
-                    | CMOTIF LPAR list RPAR
                     | TRANSL LPAR ID RPAR
                     | READ LPAR STRING RPAR
                     | WRITE LPAR ID RPAR
+                    | GCCON LPAR STRING RPAR
                 '''
+    #| CMOTIF LPAR list RPAR
+
     if p[1] == "print":
         print(variables.get(p[3]))
     elif p[1] == "comp":
         p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "rcomp":
-        p[0] = balg.complement_dna(variables.get(p[3])[0])
+        p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "transc":
-        p[0] = balg.dna_to_rna(variables.get(p[3])[0])
+        p[0] = balg.dna_to_rna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "rtransc":
-        p[0] = balg.rna_to_dna(variables.get(p[3])[0])
+        p[0] = balg.rna_to_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "ctable":
         if p[3] == 1:
             balg.print_CDT('dna')
@@ -92,11 +94,13 @@ def p_method_one(p):
         else:
             print("Error: Table Not Found")
     elif p[1] == "transl":
-        p[0] = balg.to_protein(variables.get(p[3])[0], variables.get(p[3])[1])
+        p[0] = balg.to_protein(str(variables.get(p[3])[0]).strip('\''), variables.get(p[3])[1])
     elif p[1] == "read":
-        p[0] = balg.read_fasta(str(p[3]).strip('\''))
+        p[0] = balg.read_seq(str(p[3]).strip('\''))
     elif p[1] == "write":
         p[0] = balg.write(p[3], variables.get(p[3]))
+    elif p[1] == "gccon":
+        p[0] = balg.gc_content(str(p[3]).strip('\''))
     #elif p[1] == "count":
     #elif p[1] == "cons":
     #elif p[1] == "acons":
@@ -107,8 +111,15 @@ def p_method_one(p):
 def p_method_two(p):
     '''method_two : SEQ LPAR STRING COMMA DTYPE RPAR
                     | SEQ LPAR STRING COMMA RTYPE RPAR
+                    | HAMDIS LPAR ID COMMA ID RPAR
+                    | RECUR LPAR INT COMMA INT RPAR
                     '''
-    p[0] = [p[3], p[5]]
+    if p[1] == "seq":
+        p[0] = [p[3], p[5]]
+    elif p[1] == "hamdis":
+        p[0] = balg.hamming_distance(str(variables.get(p[3])[0]).strip('\''), str(variables.get(p[5])[0]).strip('\''))
+    elif p[1] == "recur":
+        p[0] = balg.recurrence(p[3], p[5])
 
 
 def p_method_three(p):
@@ -122,10 +133,10 @@ def p_method_three(p):
         print("Error: Incorrect parameter.")
 
 
-def p_list(p):
-    '''list : list COMMA list
-            | ID
-            '''
+#def p_list(p):
+#    '''list : list COMMA list
+#            | ID
+#            '''
 
 
 def getparser():
