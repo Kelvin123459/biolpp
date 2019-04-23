@@ -20,9 +20,25 @@ def p_print_varlist(p):
     else:
         print("No variables declared.")
 
-def p_statement(p):
+def p_assignment(p):
+    '''statement : ID EQUALS ID
+                    | ID EQUALS result
+                    '''
+    if p[3] is None:
+        pass
+    else:
+        variables[p[1]] = p[3]
+
+def p_statement_id(p):
     '''statement : ID
-                   | result
+                   '''
+    if p[1] is None:
+        pass
+    else:
+        print(variables.get(p[1]))
+
+def p_statement_result(p):
+    '''statement : result
                    '''
     if p[1] is None:
         pass
@@ -35,15 +51,6 @@ def p_result(p):
                 | method_three
                 '''
     p[0] = p[1]
-
-def p_assignment(p):
-    '''assignment : ID EQUALS ID
-                    | ID EQUALS result
-                    '''
-    if p[3] is None:
-        pass
-    else:
-        variables[p[1]] = p[3]
 
 def p_error(p):
     if p:
@@ -63,13 +70,15 @@ def p_method_one(p):
                     | ACONSEN LPAR ID RPAR
                     | DCONSEN LPAR ID RPAR
                     | CMOTIF LPAR list RPAR
+                    | TRANSL LPAR ID RPAR
+                    | READ LPAR STRING RPAR
                 '''
     if p[1] == "print":
         print(variables.get(p[3]))
     elif p[1] == "comp":
         p[0] = balg.complement_dna(variables.get(p[3]))
-    #elif p[1] == "rcomp":
-    #    p[0] = balg.complement_dna(variables.get(p[3]))
+    elif p[1] == "rcomp":
+        p[0] = balg.complement_dna(variables.get(p[3]))
     elif p[1] == "transc":
         p[0] = balg.dna_to_rna(variables.get(p[3]))
     elif p[1] == "rtransc":
@@ -81,8 +90,11 @@ def p_method_one(p):
             balg.print_CDT('rna')
         else:
             print("Error: Table Not Found")
+    elif p[1] == "transl":
+        p[0] = balg.to_protein(variables.get(p[3])[0], variables.get(p[3])[1])
+    elif p[1] == "read":
+        p[0] = balg.read_fasta(str(p[3]))
     #elif p[1] == "count":
-     #   p[0] = balg
     #elif p[1] == "cons":
     #elif p[1] == "acons":
     #elif p[1] == "dcons":
@@ -93,21 +105,17 @@ def p_method_one(p):
 
 
 def p_method_two(p):
-    '''method_two : WRITE LPAR FFORMAT COMMA STRING RPAR
-                    | WRITE LPAR TFORMAT COMMA STRING RPAR
-                    | SEQ LPAR STRING COMMA DTYPE RPAR
+    '''method_two : SEQ LPAR STRING COMMA DTYPE RPAR
                     | SEQ LPAR STRING COMMA RTYPE RPAR
-                    | TRANSL LPAR ID COMMA INT RPAR
                     '''
-    #if p[1] == "write":
+    p[0] = [p[3], p[5]]
+
 
 
 def p_method_three(p):
-    '''method_three : READ LPAR STYPE COMMA FFORMAT COMMA STRING RPAR
-                    | READ LPAR STYPE COMMA TFORMAT COMMA STRING RPAR
-                    | READ LPAR TTYPE COMMA FFORMAT COMMA STRING RPAR
-                    | READ LPAR TTYPE COMMA TFORMAT COMMA STRING RPAR
-                    | DRAW LPAR INT COMMA ID COMMA STRING RPAR
+    '''method_three : DRAW LPAR INT COMMA ID COMMA STRING RPAR
+                    | WRITE LPAR FFORMAT COMMA ID COMMA STRING RPAR
+                    | WRITE LPAR TFORMAT COMMA ID COMMA STRING RPAR
                     '''
 
 def p_list(p):

@@ -142,13 +142,13 @@ def rna_inferring(seq):
         stop *= result[c]
     return stop
 
-def rna_inferring_file(seq):
+def rna_inferring_file(file):
     seq = read_fasta(file)
     for s_id, sequence in seq.items():
         print(rna_inferring(sequence))
 
 def read_fasta(fasta):
-    file = open(fasta, 'r')
+    file = open(fasta, "r")
     file_data = file.readlines()
     file.close()
     sequences = {}
