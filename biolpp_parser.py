@@ -74,6 +74,11 @@ def p_method_one(p):
                     | WRITE LPAR ID RPAR
                     | GCCON LPAR STRING RPAR
                     | RNAINF LPAR ID RPAR
+                    | ORF LPAR STRING RPAR
+                    | COMPF LPAR ID RPAR
+                    | RCOMPF LPAR ID RPAR
+                    | TRANSCF LPAR ID RPAR
+                    | RTRANSCF LPAR ID RPAR
                 '''
     #| CMOTIF LPAR list RPAR
 
@@ -104,6 +109,8 @@ def p_method_one(p):
         p[0] = balg.gc_content(str(p[3]).strip('\''))
     elif p[1] == "rnainf":
         p[0] = balg.rna_inferring(str(variables.get(p[3])[0]).strip('\''))
+    elif p[1] == "orf":
+        p[0] = balg.open_read_frame(str(p[3]).strip('\''))
     #elif p[1] == "count":
     #elif p[1] == "cons":
     #elif p[1] == "acons":
