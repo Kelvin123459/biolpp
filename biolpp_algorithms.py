@@ -1,7 +1,6 @@
 #============================================================
-#   BioL++ Algorithms & Intermediate Code
+#                   BioL++ Algorithms                       #
 #============================================================
-
 
 import sys
 import Bio
@@ -10,10 +9,6 @@ from Bio import SeqIO
 from Bio import Seq
 from Bio import Alphabet
 import pylab
-
-
-counter = 0
-
 
 def dna_to_rna(dna):
     dna2 = dna.upper()
@@ -63,13 +58,17 @@ def rcomplement_dna(dna):
 
 def complement_dna_file(file):
     seq = read_fasta(file)
+    print("Complementing DNA - Reading file:", file)
     for s_id, sequence in seq.items():
-        print(complement_dna(sequence))
+        print('\t>',s_id)
+        print('\t\t',complement_dna(sequence))
 
 def rcomplement_dna_file(file):
     seq = read_fasta(file)
+    print("Reverse Complementing DNA - Reading file:", file)
     for s_id, sequence in seq.items():
-        print(rcomplement_dna(sequence))
+        print('\t>', s_id)
+        print('\t\t', rcomplement_dna(sequence))
 
 def recurrence(n, k):
     a, b = 0, 1
@@ -86,7 +85,6 @@ def to_protein(seq, type):
         print('Sequence type is not valid')
         return 0;
     if len(seq) == 3:
-        # print(__3by3Protein(seq, table))
         return __3by3Protein(seq, table)
     protein = ""
     for i in range(0, len(seq) - (3 + len(seq) % 3), 3):
@@ -166,19 +164,12 @@ def rna_inferring_file(file):
     for s_id, sequence in seq.items():
         print(rna_inferring(sequence))
 
-def read_seq(file):
-    temp = []
-    global counter
-    for seqrec in SeqIO.parse(file, "fasta"):
-        temp.append(seqrec)
-    type = ""
-    if temp[counter].seq.alphabet == "IUPACUnambiguousDNA()":
-        type = "dna"
-    elif temp[counter].seq.alphabet == "IUPACUnambiguousRNA()":
-        type = "rna"
-    retlist = [str(temp[counter].seq), type]
-    counter = (counter + 1) % len(temp)
-    return retlist
+def read_seq(s_id, file):
+    seq = read_fasta(file)
+    for s, sequence in seq.items():
+        if s_id==s:
+            return sequence
+    return 'Sequence not found in file: '+ file
 
 def read_fasta(fasta):
     file = open(fasta, 'r')
@@ -322,6 +313,8 @@ def __combinations(p1, p2):
 def __3by3Protein(seq, table):
     if seq in table:
         protein = table[seq]
+    else:
+        return 'Invalid sequence:' + seq
     return protein
 
 def __orf(sequence):

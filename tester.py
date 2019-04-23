@@ -18,18 +18,19 @@ def main():
     # print(bio.motif_interval('ACGTACGTACGTACGT', 'GTA'))
     # bio.print_CDT('dna')
     # bio.print_CDT('rna')
-    # bio.complement_dna_file('file.txt')
+    bio.complement_dna_file('file.txt')
     # bio.open_read_frame('file.txt')
     # print(bio.prot_weight("S"))
     # bio.phylogen('tree.xml', 'console')
     # bio.phylogen('tree.xml', 'pylab')
-    print(bio.prot_infer("""
-                    3524.8542
-                    3710.9335
-                    3841.974
-                    3970.0326
-                    4057.0646
-                    """))
+    # print(bio.prot_infer("""
+    #                 3524.8542
+    #                 3710.9335
+    #                 3841.974
+    #                 3970.0326
+    #                 4057.0646
+    #                 """))
+    # seq = bio.read_seq('HSGLTH1 Human theta 1-globin gene', 'file.txt')
 if __name__ == '__main__':
     main()
 
