@@ -73,6 +73,7 @@ def p_method_one(p):
                     | READ LPAR STRING RPAR
                     | WRITE LPAR ID RPAR
                     | GCCON LPAR STRING RPAR
+                    | RNAINF LPAR ID RPAR
                 '''
     #| CMOTIF LPAR list RPAR
 
@@ -81,7 +82,7 @@ def p_method_one(p):
     elif p[1] == "comp":
         p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "rcomp":
-        p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
+        p[0] = balg.rcomplement_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "transc":
         p[0] = balg.dna_to_rna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "rtransc":
@@ -101,6 +102,8 @@ def p_method_one(p):
         p[0] = balg.write(p[3], variables.get(p[3]))
     elif p[1] == "gccon":
         p[0] = balg.gc_content(str(p[3]).strip('\''))
+    elif p[1] == "rnainf":
+        p[0] = balg.rna_inferring(str(variables.get(p[3])[0]).strip('\''))
     #elif p[1] == "count":
     #elif p[1] == "cons":
     #elif p[1] == "acons":
@@ -115,7 +118,7 @@ def p_method_two(p):
                     | RECUR LPAR INT COMMA INT RPAR
                     '''
     if p[1] == "seq":
-        p[0] = [p[3], p[5]]
+        p[0] = [str(p[3]).strip('\''), p[5]]
     elif p[1] == "hamdis":
         p[0] = balg.hamming_distance(str(variables.get(p[3])[0]).strip('\''), str(variables.get(p[5])[0]).strip('\''))
     elif p[1] == "recur":

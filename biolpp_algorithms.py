@@ -4,9 +4,11 @@
 
 
 import sys
+import Bio
 from Bio import Phylo
 from Bio import SeqIO
 from Bio import Seq
+from Bio import Alphabet
 import pylab
 
 
@@ -49,12 +51,25 @@ def complement_dna(dna):
     complement = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'}
     for nucleotide in dna2:
         answer.append(complement[nucleotide])
+    return ''.join(answer[::1])
+
+def rcomplement_dna(dna):
+    dna2 = dna.upper()
+    answer = []
+    complement = {'A': 'T', 'T': 'A', 'G': 'C', 'C': 'G'}
+    for nucleotide in dna2:
+        answer.append(complement[nucleotide])
     return ''.join(answer[::-1])
 
 def complement_dna_file(file):
     seq = read_fasta(file)
     for s_id, sequence in seq.items():
         print(complement_dna(sequence))
+
+def rcomplement_dna_file(file):
+    seq = read_fasta(file)
+    for s_id, sequence in seq.items():
+        print(rcomplement_dna(sequence))
 
 def recurrence(n, k):
     a, b = 0, 1
@@ -156,7 +171,12 @@ def read_seq(file):
     global counter
     for seqrec in SeqIO.parse(file, "fasta"):
         temp.append(seqrec)
-    retlist = str(temp[counter].seq)
+    type = ""
+    if temp[counter].seq.alphabet == "IUPACUnambiguousDNA()":
+        type = "dna"
+    elif temp[counter].seq.alphabet == "IUPACUnambiguousRNA()":
+        type = "rna"
+    retlist = [str(temp[counter].seq), type]
     counter = (counter + 1) % len(temp)
     return retlist
 

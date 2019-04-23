@@ -35,6 +35,7 @@ reserved = {
     'hamdis': 'HAMDIS',
     'gccon': 'GCCON',
     'recur': 'RECUR',
+    'rnainf': 'RNAINF',
     'varlist': 'VARLIST'
 }
 
