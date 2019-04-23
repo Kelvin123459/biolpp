@@ -4,6 +4,7 @@ def main():
     # bio.mendel_table_write('Aa Bb'.split(' '), 'Cc Dd'.split(' '), "out")
     # bio.mendel_table('Aa Bb'.split(' '), 'Cc Dd'.split(' '))
     # print(bio.rna_inferring('MA'))
+    # print(bio.rna_inferring(bio.read_seq('HSBGPG Human gene for bone gla protein (BGP)','file.txt')))
     # print(bio.dna_to_rna('GATGGAACTTGACTACGTAAATT'))
     # print(bio.rna_to_dna('GAUGGAACUUGACUACGUAAAUU'))
     # bio.dna_to_rnaFile('file.txt')

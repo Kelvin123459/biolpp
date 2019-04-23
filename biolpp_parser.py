@@ -52,38 +52,31 @@ def p_result(p):
                 '''
     p[0] = p[1]
 
-def p_error(p):
-    if p:
-        print("Syntax error at '%s'" % p.value)
-    else:
-        print("Syntax error")
 
 def p_method_one(p):
-    '''method_one : PRINT LPAR ID RPAR
+    '''method_one : PRINT LPAR STRING RPAR
                     | COMP LPAR ID RPAR
                     | RCOMP LPAR ID RPAR
                     | TRANSC LPAR ID RPAR
                     | RTRANSC LPAR ID RPAR
                     | CTABLE LPAR INT RPAR
-                    | COUNT LPAR ID RPAR
-                    | CONSEN LPAR ID RPAR
-                    | ACONSEN LPAR ID RPAR
-                    | DCONSEN LPAR ID RPAR
-                    | TRANSL LPAR ID RPAR
+                    | TRANSL LPAR ID COMMA DTYPE RPAR
+                    | TRANSL LPAR ID COMMA RTYPE RPAR
                     | READ LPAR STRING COMMA STRING RPAR
                     | WRITE LPAR ID RPAR
                     | GCCON LPAR STRING RPAR
                     | RNAINF LPAR ID RPAR
+                    | RNAINF2 LPAR STRING RPAR
                     | ORF LPAR STRING RPAR
-                    | COMPF LPAR ID RPAR
-                    | RCOMPF LPAR ID RPAR
-                    | TRANSCF LPAR ID RPAR
-                    | RTRANSCF LPAR ID RPAR
+                    | COMPF LPAR STRING RPAR
+                    | RCOMPF LPAR STRING RPAR
+                    | TRANSCF LPAR STRING RPAR
+                    | RTRANSCF LPAR STRING RPAR
+                    | PROTW LPAR ID RPAR
                 '''
-    #| CMOTIF LPAR list RPAR
 
     if p[1] == "print":
-        print(variables.get(p[3]))
+        print(balg.read_fasta(str(p[3]).strip('\'')))
     elif p[1] == "comp":
         p[0] = balg.complement_dna(str(variables.get(p[3])[0]).strip('\''))
     elif p[1] == "rcomp":
@@ -100,7 +93,7 @@ def p_method_one(p):
         else:
             print("Error: Table Not Found")
     elif p[1] == "transl":
-        p[0] = balg.to_protein(str(variables.get(p[3])[0]).strip('\''), variables.get(p[3])[1])
+        p[0] = balg.to_protein(str(variables.get(p[3])).strip('\''), str(p[5]).strip('\''))
     elif p[1] == "read":
         p[0] = balg.read_seq(str(p[3]).strip('\''), str(p[5]).strip('\''))
     elif p[1] == "write":
@@ -108,24 +101,30 @@ def p_method_one(p):
     elif p[1] == "gccon":
         p[0] = balg.gc_content(str(p[3]).strip('\''))
     elif p[1] == "rnainf":
-        p[0] = balg.rna_inferring(str(variables.get(p[3])[0]).strip('\''))
+        p[0] = balg.rna_inferring(str(variables.get(p[3])).strip('\''))
     elif p[1] == "orf":
         p[0] = balg.open_read_frame(str(p[3]).strip('\''))
-    #elif p[1] == "count":
-    #elif p[1] == "cons":
-    #elif p[1] == "acons":
-    #elif p[1] == "dcons":
-    #elif p[1] == "createmotif":
+    elif p[1] == "compf":
+        p[0] = balg.complement_dna_file(str(p[3]).strip('\''))
+    elif p[1] == "rcompf":
+        p[0] = balg.rcomplement_dna_file(str(p[3]).strip('\''))
+    elif p[1] == "transcf":
+        p[0] = balg.dna_to_rnaFile(str(p[3]).strip('\''))
+    elif p[1] == "rtranscf":
+        p[0] = balg.rna_to_dnaFile(str(p[3]).strip('\''))
+    elif p[1] == "rnainf2":
+        p[0] = balg.rna_inferring_file(str(p[3]).strip('\''))
+    elif p[1] == "protw":
+        p[0] = balg.prot_weight(str(variables.get(p[3])).strip('\''))
 
 
 def p_method_two(p):
-    '''method_two : SEQ LPAR STRING COMMA DTYPE RPAR
-                    | SEQ LPAR STRING COMMA RTYPE RPAR
+    '''method_two : SEQ LPAR STRING RPAR
                     | HAMDIS LPAR ID COMMA ID RPAR
                     | RECUR LPAR INT COMMA INT RPAR
                     '''
     if p[1] == "seq":
-        p[0] = [str(p[3]).strip('\''), p[5]]
+        p[0] = str(p[3]).strip('\'').upper()
     elif p[1] == "hamdis":
         p[0] = balg.hamming_distance(str(variables.get(p[3])[0]).strip('\''), str(variables.get(p[5])[0]).strip('\''))
     elif p[1] == "recur":
@@ -143,41 +142,17 @@ def p_method_three(p):
         print("Error: Incorrect parameter.")
 
 
-#def p_list(p):
-#    '''list : list COMMA list
-#            | ID
-#            '''
+def p_empty(p):
+    '''empty :  '''
+    p[0] = None
+
+
+def p_error(p):
+    if p:
+        print("Syntax error at '%s'" % p.value)
+    else:
+        print("Syntax error")
 
 
 def getparser():
     return yacc.yacc()
-
-
-# Format = fasta, txt (string)
-# Type read(format, directory) -> type (sequence|tree)
-# ID = type.read(format(string),directory(string))
-#
-# write(format, directory) -> void (makes file with results)
-# Statement: write(str,str)
-#
-# print(ID) -> prints to terminal (same as python print)
-# print(str)
-#
-# sequence(seq_string, {type (rna|dna)}) -> sequence
-# ID = SEQ(str, type)
-#
-# complement(sequence rna | dna) -> sequence (rna |dna)
-# Id = comp(ID)
-#
-# reverse_complement(sequence rna | dna) -> sequence (rna | dna)
-#
-# transcription(sequence dna) -> sequence rna
-#
-# reverse_transcription(sequence rna) -> sequence dna
-#
-# translate(sequence rna|dna, {table (string|int)}) -> sequence protein
-# ID = trans(ID, INT)
-#
-# codon_table({string|int type} default is “Standard”/1) -> table
-#
-# ID(variable) -> prints variable value in console
