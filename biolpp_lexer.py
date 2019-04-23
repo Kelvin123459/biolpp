@@ -13,6 +13,10 @@ reserved = {
     'rcomp': 'RCOMP',
     'transc': 'TRANSC',
     'rtransc': 'RTRANSC',
+    'compf': 'COMPF',
+    'rcompf': 'RCOMPF',
+    'transcf': 'TRANSCF',
+    'rtranscf': 'RTRANSCF',
     'transl': 'TRANSL',
     'read': 'READ',
     'write': 'WRITE',
@@ -36,6 +40,7 @@ reserved = {
     'gccon': 'GCCON',
     'recur': 'RECUR',
     'rnainf': 'RNAINF',
+    'orf': 'ORF',
     'varlist': 'VARLIST'
 }
 
