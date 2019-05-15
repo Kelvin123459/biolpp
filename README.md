@@ -1,3 +1,21 @@
+## Introduction
+
+Computational biology is a broad and expansive field of study centered mostly on the storage, processing and analysis of
+biological data pertinent to many fields such as genetics, molecular biology and biophysics, among others. It uses applied
+mathematics and statistics to aid in the analysis of large amounts of data, often requiring a way to output the results onto
+graphs and other displays to aid in the visualization of the data and results of the analyses. The field is intricately linked
+to computer science as it makes heavy use of computers to acquire, store and process all the data, as well as designing
+algorithms to process it and analyze it.
+
+The main motivation comes from the fact that many of the tasks performed by computational biologists are repetitive and
+require several steps to achieve the final result. The goal of this language is to streamline the workflow and condense many of
+these tasks into one or two simple instructions which will automatically output the results as desired. Another reason behind
+creating such a language is that it allows biologists with little to no programming knowledge or experience to easily analyze
+their own data without having to rely on computational biologists to do it for them. This way they can benefit immensely without
+having to spend months trying to learn how to program or learn a complex programming language. Using simple and straightforward
+functions, anyone can learn how to use this programming language in just one afternoon.
+
+
 ## Welcome to GitHub Pages
 
 You can use the [editor on GitHub](https://github.com/rafo23/biolpp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
