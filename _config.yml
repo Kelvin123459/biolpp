@@ -3,3 +3,5 @@ remote_theme: jekyll-theme-slate
 # jekyll-theme-slate
 # agency-jekyll-theme
 # jekyll-theme-cayman
+
+theme: jekyll-theme-cayman
