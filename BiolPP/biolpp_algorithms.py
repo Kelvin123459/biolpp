@@ -29,12 +29,12 @@ def rna_to_dna(rna):
         else:
             dna += ch
     return dna
-#=======
+
 def dna_to_rnaFile(file):
     dna = read_fasta(file)
     for s_id, sequence in dna.items():
         print(dna_to_rna(sequence))
-#=========
+
 def rna_to_dnaFile(file):
     rna = read_fasta(file)
     for s_id, sequence in rna.items():
@@ -55,14 +55,14 @@ def rcomplement_dna(dna):
     for nucleotide in dna2:
         answer.append(complement[nucleotide])
     return ''.join(answer[::-1])
-#=====
+
 def complement_dna_file(file):
     seq = read_fasta(file)
     print("Complementing DNA - Reading file:", file)
     for s_id, sequence in seq.items():
         print('\t>',s_id)
         print('\t\t',complement_dna(sequence))
-#=====
+
 def rcomplement_dna_file(file):
     seq = read_fasta(file)
     print("Reverse Complementing DNA - Reading file:", file)
@@ -106,7 +106,7 @@ def gc_content(file):
     for s_id, sequence in seq.items():
         gc_count = sequence.count("G") + sequence.count("C")
         print("\t", s_id,': ', 100 * (float(gc_count) / len(sequence)))
-#=====
+
 def motif_interval(seq, splice):
     result = []
     for i in range(0, len(seq) - len(splice) + 1):
@@ -133,7 +133,6 @@ def mendel_table(type1, type2):
             frequencies.append(x + ' & ' + str(float(count) / float((len(genotypes))) * 100) + '\\% \\\ \\hline \n')
         calculated.append(sorted(x))
     return_arr = [printed_table, frequencies]
-    # return return_arr
 
 def mendel_table_write(type1, type2, file):
     txt_file = file + ".txt"
@@ -159,7 +158,7 @@ def rna_inferring(seq):
     for c in seq:
         stop *= result[c]
     return stop
-#=====
+
 def rna_inferring_file(file):
     seq = read_fasta(file)
     for s_id, sequence in seq.items():
@@ -200,7 +199,7 @@ def open_read_frame(file):
         results = __orf(sequence)
         results_b = __orf(complement_dna(sequence))
         print("\n\t\t".join(set(results + results_b)))
-#=====
+
 def prot_weight(protein):
     weight = 0
     table = __monoisotopic_mass_table()

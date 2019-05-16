@@ -3,9 +3,7 @@
 #============================================================
 
 
-import sys
-import biolpp_parser
-
+from BiolPP import biolpp_parser
 
 parser = biolpp_parser.getparser()
 while True:

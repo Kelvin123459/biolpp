@@ -21,26 +21,17 @@ reserved = {
     'read': 'READ',
     'write': 'WRITE',
     'ctable': 'CTABLE',
-    #'createmotif': 'CMOTIF',
-    'count': 'COUNT',
-    'cons': 'CONSEN',
-    'acons': 'ACONSEN',
-    'dcons': 'DCONSEN',
     'drawtree': 'DRAW',
     'rna': 'RTYPE',
     'dna': 'DTYPE',
-    #'protein': 'PTYPE',
     'print': 'PRINT',
-    #'fasta': 'FFORMAT',
-    #'txt': 'TFORMAT',
-    #'void': 'VOID',
-    #'bseq': 'STYPE',
-    #'btree': 'TTYPE',
     'hamdis': 'HAMDIS',
     'gccon': 'GCCON',
     'recur': 'RECUR',
     'rnainf': 'RNAINF',
+    'rnainf2': 'RNAINF2',
     'orf': 'ORF',
+    'protw': 'PROTW',
     'varlist': 'VARLIST',
     'motif': 'MOTIF',
     'punnett': 'PUNNETT',
@@ -54,7 +45,6 @@ tokens = [
     'EQUALS',
     'LPAR',
     'RPAR',
-    #'DOT',
     'STRING',
     'COMMA',
     'INT'
@@ -64,7 +54,6 @@ tokens = [
 t_EQUALS = r'\='
 t_LPAR = r'\('
 t_RPAR = r'\)'
-#t_DOT = r'\.'
 t_COMMA = r'\,'
 t_ignore = " \t"
 
