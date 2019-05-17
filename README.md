@@ -69,35 +69,3 @@ while True:
 
 ```
 Once these are tested and proven to work, the next step is to test the entire language in the terminal since there is no way to test the parser separately and at this point the entire structure of the language is already done. As was mentioned previously, the test methodology consisted of running the commands in the terminal for which we already knew the result. We compared the output and made sure it matched. Trying to break the language is the best way to test it and make sure it is robust. Throwing in syntax errors and mismatched data types helps to confirm it is working in order.
-
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
-```
-
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
-
-### Jekyll Themes
-
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/rafo23/biolpp/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
-
-### Support or Contact
-
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
