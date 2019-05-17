@@ -1,24 +1,14 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="ff526570-89cc-4f0d-a59a-5d435cdce685" name="Default Changelist" comment="final merge">
-      <change afterPath="$PROJECT_DIR$/BiolPP/parser.out" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/BiolPP/parsetab.py" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IOFiles/mendel.txt" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/IOFiles/rna.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/biolpp.iml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/biolpp.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+    <list default="true" id="ff526570-89cc-4f0d-a59a-5d435cdce685" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biolpp.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/biolpp.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biolpp_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/biolpp_algorithms.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biolpp_lexer.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/biolpp_lexer.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/biolpp_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/biolpp_parser.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IOFiles/file.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IOFiles/out.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/parser.out" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/parsetab.py" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiolPP/biolpp_algorithms.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/biolpp_algorithms.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiolPP/biolpp_parser.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/biolpp_parser.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiolPP/parser.out" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/parser.out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BiolPP/parsetab.py" beforeDir="false" afterPath="$PROJECT_DIR$/BiolPP/parsetab.py" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/IOFiles/file.txt" beforeDir="false" afterPath="$PROJECT_DIR$/IOFiles/file.txt" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/tester.py" beforeDir="false" afterPath="$PROJECT_DIR$/tester.py" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/tree.xml" beforeDir="false" afterPath="$PROJECT_DIR$/IOFiles/tree.xml" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/venv/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -32,56 +22,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_lexer.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="36" column="25" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="25" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IOFiles/tree.xml">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-9231">
-              <caret line="6" column="16" selection-start-line="6" selection-start-column="16" selection-end-line="6" selection-end-column="16" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_parser.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="529">
-              <caret line="144" column="26" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="26" />
-              <folding>
-                <element signature="e#144#167#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IOFiles/mendel.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="374">
-              <caret line="22" column="14" selection-start-line="22" selection-start-column="14" selection-end-line="22" selection-end-column="14" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/IOFiles/file.txt">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/BiolPP/biolpp.py">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="170">
-              <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+            <state relative-caret-position="-304">
+              <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
             </state>
           </provider>
         </entry>
@@ -89,8 +31,8 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_algorithms.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1615">
-              <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
+            <state relative-caret-position="361">
+              <caret line="188" column="18" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
               <folding>
                 <element signature="e#187#197#0" expanded="true" />
               </folding>
@@ -99,10 +41,40 @@
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_parser.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-306">
+              <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+              <folding>
+                <element signature="e#144#167#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/tester.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="153">
-              <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+            <state relative-caret-position="85">
+              <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/IOFiles/file.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="467">
+              <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/IOFiles/myfile.txt">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="187">
+              <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
             </state>
           </provider>
         </entry>
@@ -119,6 +91,10 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>draw</find>
+      <find>read</find>
+      <find>write</find>
+      <find>wrt</find>
+      <find>.txt</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -130,13 +106,18 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/output.txt" />
         <option value="$PROJECT_DIR$/rna.txt" />
         <option value="$PROJECT_DIR$/biolpp_lexer.py" />
         <option value="$PROJECT_DIR$/mendel.txt" />
         <option value="$PROJECT_DIR$/biolpp_algorithms.py" />
         <option value="$PROJECT_DIR$/biolpp_parser.py" />
+        <option value="$PROJECT_DIR$/_config.yml" />
+        <option value="$PROJECT_DIR$/output.txt" />
         <option value="$PROJECT_DIR$/tester.py" />
+        <option value="$PROJECT_DIR$/BiolPP/biolpp_algorithms.py" />
+        <option value="$PROJECT_DIR$/BiolPP/biolpp_parser.py" />
+        <option value="$PROJECT_DIR$/IOFiles/file.txt" />
+        <option value="$PROJECT_DIR$/IOFiles/myfile.txt" />
       </list>
     </option>
   </component>
@@ -164,6 +145,11 @@
               <item name="biolpp" type="462c0819:PsiDirectoryNode" />
               <item name="BiolPP" type="462c0819:PsiDirectoryNode" />
             </path>
+            <path>
+              <item name="biolpp" type="b2602c69:ProjectViewProjectNode" />
+              <item name="biolpp" type="462c0819:PsiDirectoryNode" />
+              <item name="IOFiles" type="462c0819:PsiDirectoryNode" />
+            </path>
           </expand>
           <select />
         </subPane>
@@ -178,6 +164,7 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Kelvi\PycharmProjects\biolpp\img" />
       <recent name="C:\Users\Kelvi\PycharmProjects\biolpp\BiolPP" />
       <recent name="C:\Users\Kelvi\PycharmProjects\biolpp\IOFiles" />
     </key>
@@ -194,7 +181,7 @@
       </list>
     </option>
   </component>
-  <component name="RunManager" selected="Python.biolpp">
+  <component name="RunManager" selected="Python.tester">
     <configuration name="biolpp" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <module name="biolpp" />
       <option name="INTERPRETER_OPTIONS" value="" />
@@ -293,7 +280,7 @@
       <workItem from="1556655364020" duration="743000" />
       <workItem from="1556832839989" duration="186000" />
       <workItem from="1556849573126" duration="9000" />
-      <workItem from="1558023858132" duration="2627000" />
+      <workItem from="1558023858132" duration="11165000" />
     </task>
     <task id="LOCAL-00001" summary="updated parser">
       <created>1556034824311</created>
@@ -337,21 +324,42 @@
       <option name="project" value="LOCAL" />
       <updated>1556058894621</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="Files Organized">
+      <created>1558041658248</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1558041658248</updated>
+    </task>
+    <task id="LOCAL-00008" summary="Config file updates">
+      <created>1558041753020</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1558041753020</updated>
+    </task>
+    <task id="LOCAL-00009" summary="Updated config.yml file">
+      <created>1558042083460</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1558042083460</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="13884000" />
+    <option name="totallyTimeSpent" value="22422000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <layout>
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.26096824" />
+      <window_info content_ui="combo" id="Project" order="0" visible="true" weight="0.14372164" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
       <window_info id="Favorites" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" weight="0.32943678" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3289689" />
+      <window_info anchor="bottom" x="12" y="250" width="1322" height="94" id="Run" maximized="true" order="2" type="WINDOWED" weight="0.15384616" />
       <window_info anchor="bottom" id="Debug" order="3" weight="0.4" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
@@ -361,7 +369,7 @@
       <window_info anchor="bottom" id="Database Changes" order="9" />
       <window_info anchor="bottom" id="Event Log" order="10" side_tool="true" />
       <window_info anchor="bottom" id="Terminal" order="11" weight="0.3289689" />
-      <window_info anchor="bottom" id="Python Console" order="12" />
+      <window_info anchor="bottom" id="Python Console" order="12" weight="0.3289689" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
@@ -378,15 +386,17 @@
     <MESSAGE value="added functions" />
     <MESSAGE value="Default Changelist" />
     <MESSAGE value="final merge" />
-    <option name="LAST_COMMIT_MESSAGE" value="final merge" />
+    <MESSAGE value="Files Organized" />
+    <MESSAGE value="Config file updates" />
+    <MESSAGE value="Updated config.yml file" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated config.yml file" />
   </component>
   <component name="com.intellij.coverage.CoverageDataManagerImpl">
-    <SUITE FILE_PATH="coverage/biolpp$biolpp.coverage" NAME="biolpp Coverage Results" MODIFIED="1558037962252" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
-    <SUITE FILE_PATH="coverage/biolpp$tester.coverage" NAME="tester Coverage Results" MODIFIED="1556051190244" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/biolpp$biolpp.coverage" NAME="biolpp Coverage Results" MODIFIED="1558050137247" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
+    <SUITE FILE_PATH="coverage/biolpp$tester.coverage" NAME="tester Coverage Results" MODIFIED="1558049394376" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$" />
   </component>
   <component name="editorHistoryManager">
     <entry file="file://$PROJECT_DIR$/README.md" />
-    <entry file="file://$PROJECT_DIR$/output.txt" />
     <entry file="file://$PROJECT_DIR$/IOFiles/out.txt">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
@@ -404,30 +414,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/IOFiles/file.txt">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="9" column="12" selection-start-line="9" selection-start-column="12" selection-end-line="9" selection-end-column="12" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_lexer.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="36" column="25" selection-start-line="36" selection-start-column="24" selection-end-line="36" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_parser.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="529">
-          <caret line="144" column="26" selection-start-line="144" selection-start-column="22" selection-end-line="144" selection-end-column="26" />
-          <folding>
-            <element signature="e#144#167#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/IOFiles/tree.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-9231">
@@ -435,27 +421,68 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/BiolPP/biolpp.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/_config.yml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="119">
+          <caret line="7" lean-forward="true" selection-start-line="7" selection-end-line="7" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_lexer.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-304">
+          <caret line="42" column="10" lean-forward="true" selection-start-line="42" selection-start-column="10" selection-end-line="42" selection-end-column="10" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tester.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="85">
+          <caret line="5" column="8" lean-forward="true" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/output.txt">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
     <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_algorithms.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-1615">
-          <caret line="109" column="32" selection-start-line="109" selection-start-column="32" selection-end-line="109" selection-end-column="32" />
+        <state relative-caret-position="361">
+          <caret line="188" column="18" lean-forward="true" selection-start-line="188" selection-start-column="18" selection-end-line="188" selection-end-column="18" />
           <folding>
             <element signature="e#187#197#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/tester.py">
+    <entry file="file://$PROJECT_DIR$/BiolPP/biolpp_parser.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="153">
-          <caret line="10" column="26" lean-forward="true" selection-start-line="10" selection-start-column="26" selection-end-line="10" selection-end-column="26" />
+        <state relative-caret-position="-306">
+          <caret line="64" column="49" selection-start-line="64" selection-start-column="49" selection-end-line="64" selection-end-column="49" />
+          <folding>
+            <element signature="e#144#167#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/BiolPP/biolpp.py">
+    <entry file="file://$PROJECT_DIR$/IOFiles/file.txt">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="170">
-          <caret line="10" column="10" selection-start-line="10" selection-start-column="10" selection-end-line="10" selection-end-column="10" />
+        <state relative-caret-position="467">
+          <caret line="32" column="45" selection-start-line="32" selection-start-column="45" selection-end-line="32" selection-end-column="45" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/IOFiles/myfile.txt">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="187">
+          <caret line="11" lean-forward="true" selection-start-line="11" selection-end-line="11" />
         </state>
       </provider>
     </entry>

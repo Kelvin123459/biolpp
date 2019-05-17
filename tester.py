@@ -25,6 +25,7 @@ def main():
     # print(bio.prot_weight("S"))
     # bio.phylogen('tree.xml', 'console')
     # bio.phylogen('tree.xml', 'pylab')
+    # bio.write('hi', 'hi2')
     # print(bio.prot_infer("""3524.8542 3710.9335 3841.974 3970.0326 4057.0646"""))
     # seq = bio.read_seq('HSGLTH1 Human theta 1-globin gene', 'file.txt')
 if __name__ == '__main__':

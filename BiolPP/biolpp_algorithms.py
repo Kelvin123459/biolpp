@@ -185,8 +185,8 @@ def read_fasta(fasta):
             sequences[current_seq] += i.rstrip()
     return sequences
 
-def write(name, value):
-    file = open("output.txt", "a")
+def write(name, value, file):
+    file = open(file+".txt", "a")
     file.write(name+": "+str(value)+"\n")
     file.close()
 

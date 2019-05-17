@@ -62,7 +62,7 @@ def p_method_one(p):
                     | TRANSL LPAR ID COMMA DTYPE RPAR
                     | TRANSL LPAR ID COMMA RTYPE RPAR
                     | READ LPAR STRING COMMA STRING RPAR
-                    | WRITE LPAR ID RPAR
+                    | WRITE LPAR ID COMMA STRING RPAR
                     | GCCON LPAR STRING RPAR
                     | RNAINF LPAR ID RPAR
                     | RNAINF2 LPAR STRING RPAR
@@ -100,7 +100,7 @@ def p_method_one(p):
     elif p[1] == "read":
         p[0] = balg.read_seq(str(p[3]).strip('\''), str(p[5]).strip('\''))
     elif p[1] == "write":
-        p[0] = balg.write(p[3], variables.get(p[3]))
+        p[0] = balg.write(p[3], variables.get(p[3]), str(p[5]).strip('\''))
     elif p[1] == "gccon":
         p[0] = balg.gc_content(str(p[3]).strip('\''))
     elif p[1] == "rnainf":
