@@ -25,6 +25,11 @@ In order to work with Biol++ the following elements must be met:
 - Install [Biopython](https://biopython.org/wiki/Documentation)
 - Install Pylab using pip 
 
+## Language Development 
+### Translator Architecture 
+
+The language was built using the Python programming language as well as the Python library PLY, which combines both a lexer and a parser. The language runs directly in the terminal where commands can be entered and executed immediately, with no need to write out the code first and then compile and run. This makes the language more versatile and easier to use and test. The following figure shows the basic structure of the language.
+
 ### Markdown
 
 Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
