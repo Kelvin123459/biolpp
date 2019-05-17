@@ -3,7 +3,7 @@
 #============================================================
 
 
-from BiolPP import biolpp_parser
+import biolpp_parser
 
 parser = biolpp_parser.getparser()
 while True:

@@ -4,7 +4,7 @@
 
 
 import ply.yacc as yacc
-from BiolPP import biolpp_algorithms as balg, biolpp_lexer as blex
+import biolpp_algorithms as balg, biolpp_lexer as blex
 
 tokens = blex.tokens
 
