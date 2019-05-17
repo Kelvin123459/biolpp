@@ -16,11 +16,14 @@ having to spend months trying to learn how to program or learn a complex program
 functions, anyone can learn how to use this programming language in just one afternoon.
 
 
-## Welcome to GitHub Pages
+## Installation
 
-You can use the [editor on GitHub](https://github.com/rafo23/biolpp/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
-
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+In order to work with Biol++ the following elements must be met:
+- [Python 3.0](https://www.python.org/downloads/) or above - (latest - [3.7.3](https://www.python.org/downloads/release/python-373/) as of writing this document)
+- A Python virtual environment and/or a development environment (i.e. [Pycharm](https://www.jetbrains.com/pycharm/))
+- Install [Pip](https://pip.pypa.io/en/stable/installing/)
+- Install [Biopython](https://biopython.org/wiki/Documentation)
+- Install Pylab using pip 
 
 ### Markdown
 
