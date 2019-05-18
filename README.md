@@ -1,5 +1,3 @@
-<img src="https://github.com/rafo23/biolpp/blob/master/img/LogoBPP.png" width="300">
-
 ## Introduction
 
 Computational biology is a broad and expansive field of study centered mostly on the storage, processing and analysis of
