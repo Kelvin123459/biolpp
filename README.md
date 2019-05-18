@@ -45,6 +45,25 @@ In order to work with Biol++ the following elements must be met:
 - Punnet diagrams generation
 - Others
 
+## Grammar
+```
+      <statement> -> VARLIST
+      <statement> -> ID EQUALS ID | ID EQUALS RESULT
+      <statement> -> ID
+      <statement> -> <result>
+      <result> -> method_one | method_two | method_three
+      <method_one> -> [function1] LPAR [ID | STRING | INT] RPAR 
+      | [function2] LPAR [ID | STRING] COMMA [STRING | DTYPE | RTYPE] RPAR
+      | [function3] LPAR STRING COMMA STRING COMMA STRING RPAR
+      <method_two> -> SEQ LPAR STRING RPAR
+            | HAMDIS LPAR ID COMMA ID RPAR
+            | RECUR LPAR INT COMMA INT RPAR
+      <method_three> -> DRAW LPAR INT COMMA STRING RPAR
+      <empty> -> “ ”
+      <function1> -> PRINT | COMP | RCOMP | TRANSC | RTRANSC | CTABLE | WRITE | GCCON | RNAINF | RNAINF2 | ORF | COMPF | RCOMPF | TRANSCF | RTRANSCF | PROTW | PROTINFER
+      <function2> -> TRANSL | READ | MOTIF | PUNNETT
+      <function3> -> WPUNNETT
+```
 ## Sample Program
 ```
       BIOL++ >>> print('IOFiles/file.txt')
