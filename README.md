@@ -1,3 +1,5 @@
+[![](http://img.youtu.be/1ArjKt102Ao/0.jpg)](youtu.be/1ArjKt102Ao "Vid")
+
 ## Introduction
 
 Computational biology is a broad and expansive field of study centered mostly on the storage, processing and analysis of
