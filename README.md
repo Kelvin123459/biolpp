@@ -1,5 +1,7 @@
 [![Logo](img/Sequence%2001.00_00_00_01.Still002.jpg)](https://www.youtube.com/watch?v=1ArjKt102Ao "Video")
-```Click logo for video```
+```
+Click logo for video
+```
 
 ## Introduction
 
