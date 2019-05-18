@@ -62,7 +62,7 @@ In order to work with Biol++ the following elements must be met:
 
 The language was built using the Python programming language as well as the Python library PLY, which combines both a lexer and a parser. The language runs directly in the terminal where commands can be entered and executed immediately, with no need to write out the code first and then compile and run. This makes the language more versatile and easier to use and test. The following figure shows the basic structure of the language.
 
-![Image](img/PL Sketch.png)
+![Image](img/PL%20Sketch.png)
 
       Figure 1 Translator Architecture for BioL++ 
       
