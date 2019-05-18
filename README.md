@@ -1,4 +1,4 @@
-[![](http://img.youtu.be/1ArjKt102Ao/0.jpg)](youtu.be/1ArjKt102Ao "Vid")
+[![](http://img.youtube.com/vi/1ArjKt102Ao/0.jpg)](http://www.youtube.com/watch?v=1ArjKt102Ao "Video")
 
 ## Introduction
 
