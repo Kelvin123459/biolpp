@@ -40,7 +40,18 @@ In order to work with Biol++ the following elements must be met:
 - Protein inference & weight
 - Punnet diagrams generation
 - Others
-
+## Sample Program
+```
+      BIOL++ >>> print('IOFiles/file.txt')
+      BIOL++ >>> a = seq('GATGGAACTTGACTACGTAAATT')
+      BIOL++ >>> a
+      BIOL++ >>> b = comp(a)
+      BIOL++ >>> b = transc(a)
+      BIOL++ >>> b = transl(a, dna)
+      BIOL++ >>> b = read('Seq 1', 'IOFiles/file.txt')
+      BIOL++ >>> write(a, 'IOFiles/myfile')
+      BIOL++ >>> punnett('Aa Bb', 'Cc Dd')
+```
 ## Language Development 
 ### Translator Architecture 
 
