@@ -60,7 +60,8 @@ In order to work with Biol++ the following elements must be met:
             | RECUR LPAR INT COMMA INT RPAR
       <method_three> -> DRAW LPAR INT COMMA STRING RPAR
       <empty> -> “ ”
-      <function1> -> PRINT | COMP | RCOMP | TRANSC | RTRANSC | CTABLE | WRITE | GCCON | RNAINF | RNAINF2 | ORF | COMPF | RCOMPF | TRANSCF | RTRANSCF | PROTW | PROTINFER
+      <function1> -> PRINT | COMP | RCOMP | TRANSC | RTRANSC | CTABLE | WRITE | GCCON 
+      | RNAINF | RNAINF2 | ORF | COMPF | RCOMPF | TRANSCF | RTRANSCF | PROTW | PROTINFER
       <function2> -> TRANSL | READ | MOTIF | PUNNETT
       <function3> -> WPUNNETT
 ```
