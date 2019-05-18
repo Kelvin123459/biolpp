@@ -1,4 +1,7 @@
-[![](http://img.youtube.com/vi/1ArjKt102Ao/0.jpg)](http://www.youtube.com/watch?v=1ArjKt102Ao "Video")
+[![Logo](img/Sequence%2001.00_00_00_01.Still002.jpg)](https://www.youtube.com/watch?v=1ArjKt102Ao "Video")
+```
+      Click logo for video
+```
 
 ## Introduction
 
@@ -26,6 +29,7 @@ In order to work with Biol++ the following elements must be met:
 - Install [Pip](https://pip.pypa.io/en/stable/installing/)
 - Install [Biopython](https://biopython.org/wiki/Documentation)
 - Install Pylab using pip 
+
 ## Language Features
 - Simple and effective syntax - Easy to learn and implement
 - DNA/RNA translation
@@ -41,12 +45,24 @@ In order to work with Biol++ the following elements must be met:
 - Punnet diagrams generation
 - Others
 
+## Sample Program
+```
+      BIOL++ >>> print('IOFiles/file.txt')
+      BIOL++ >>> a = seq('GATGGAACTTGACTACGTAAATT')
+      BIOL++ >>> a
+      BIOL++ >>> b = comp(a)
+      BIOL++ >>> b = transc(a)
+      BIOL++ >>> b = transl(a, dna)
+      BIOL++ >>> b = read('Seq 1', 'IOFiles/file.txt')
+      BIOL++ >>> write(a, 'IOFiles/myfile')
+      BIOL++ >>> punnett('Aa Bb', 'Cc Dd')
+```
 ## Language Development 
 ### Translator Architecture 
 
 The language was built using the Python programming language as well as the Python library PLY, which combines both a lexer and a parser. The language runs directly in the terminal where commands can be entered and executed immediately, with no need to write out the code first and then compile and run. This makes the language more versatile and easier to use and test. The following figure shows the basic structure of the language.
 
-![Image](https://github.com/rafo23/biolpp/blob/master/img/PL%20Sketch.png)
+![Image](img/PL Sketch.png)
 
       Figure 1 Translator Architecture for BioL++ 
       
@@ -56,7 +72,7 @@ As seen in Figure 1, the user inputs the BioL++ code into the terminal where it 
 
 The entire project was developed with modularity in mind. All aspects are separated based on their functionality. The main program is responsible for instantiating the parser and the loop to retrieve user input from the terminal window. The input is sent to the parser for analysis. Inside the parser, the lexer module is referenced and the token list defined there is obtained. Based on the syntax, grammar rules and the specific function that was input, the parser either throws a syntax error to the user, or on a syntactically correct statement calls the respective algorithm in the algorithms module to process the data and produce the desired output, which is then displayed in the terminal or saved to a file on the computer.  
 
-![Image](https://github.com/rafo23/biolpp/blob/master/img/PL%20Diag.png)
+![Image](img/PL Diag.png)
 
       Figure 2 Module interfacing 
       
@@ -85,3 +101,7 @@ while True:
 
 ```
 Once these are tested and proven to work, the next step is to test the entire language in the terminal since there is no way to test the parser separately and at this point the entire structure of the language is already done. As was mentioned previously, the test methodology consisted of running the commands in the terminal for which we already knew the result. We compared the output and made sure it matched. Trying to break the language is the best way to test it and make sure it is robust. Throwing in syntax errors and mismatched data types helps to confirm it is working in order.
+
+## Reference Manual
+
+The [reference manual]() contains the list of all the functions the language contains, as well as a detailed guide on how to use these.
