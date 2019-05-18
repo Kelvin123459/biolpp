@@ -104,4 +104,4 @@ Once these are tested and proven to work, the next step is to test the entire la
 
 ## Reference Manual
 
-The [reference manual]() contains the list of all the functions the language contains, as well as a detailed guide on how to use these.
+The [reference manual](https://github.com/rafo23/biolpp/blob/master/Reference%20Manual.pdf) contains the list of all the functions the language contains, as well as a detailed guide on how to use these.
