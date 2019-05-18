@@ -1,4 +1,4 @@
-[![Language Demo Video](https://github.com/rafo23/biolpp/blob/master/img/Sequence%2001.00_00_00_01.Still002.jpg)](http://www.youtube.com/watch?v=1ArjKt102Ao "Video")
+[![Logo](img/Sequence%2001.00_00_00_01.Still002.jpg)](https://www.youtube.com/watch?v=1ArjKt102Ao "Video")
 
 ## Introduction
 
