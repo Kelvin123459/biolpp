@@ -26,6 +26,7 @@ In order to work with Biol++ the following elements must be met:
 - Install [Pip](https://pip.pypa.io/en/stable/installing/)
 - Install [Biopython](https://biopython.org/wiki/Documentation)
 - Install Pylab using pip 
+
 ## Language Features
 - Simple and effective syntax - Easy to learn and implement
 - DNA/RNA translation
@@ -40,6 +41,7 @@ In order to work with Biol++ the following elements must be met:
 - Protein inference & weight
 - Punnet diagrams generation
 - Others
+
 ## Sample Program
 ```
       BIOL++ >>> print('IOFiles/file.txt')
