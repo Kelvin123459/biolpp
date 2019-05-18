@@ -78,7 +78,7 @@ The entire project was developed with modularity in mind. All aspects are separa
       
 The algorithms module contains our own implementations as well as external third-party libraries. The main library is [Biopython](https://biopython.org/wiki/Documentation), which is used in combination with [pylab](https://scipy.github.io/old-wiki/pages/PyLab) to read and draw the phylogenetic trees. This library allows us to draw an ASCII representation of the tree directly in the terminal as well as an actual image which can be modified and saved to the machine using the [matplotlib](https://matplotlib.org/) viewer. 
 
-### Software Development Environment 
+### Software Development Environment
 
 The entire project development was done with the help of the following programs/applications: JetBrains PyCharm, PIP/virtualenv and GitHub Desktop. PyCharm is a free integrated development environment (IDE) tailored for Python development and contains a plethora of tools and aids to help with coding in Python. It provides tools such as syntax highlighting and code completion, as well as project management and debugging tools. PIP is Python’s own package manager that allows one to download and install packages and libraries seamlessly to one’s machine through the terminal window. Virtualenv allows one to create a separate Python environment for development which only contains the necessary packages and the required versions to properly run the application. The final component is GitHub Desktop which greatly simplifies teamwork and version control. It allows groups of developers to push their work and retrieve updates done by others and manage the work progress. 
 
